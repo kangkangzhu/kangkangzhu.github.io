@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简"}
+#div1{width:100px;height:100px;background:red;position: absolute;left:0;top:0;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+
+$.fn.drag=function(){
+	this.mousedown(function(ev){
+		var disX=ev.clientX-$(this).position().left;
+		var disY=ev.clientY-$(this).position().top;
+		
+		var _this = $(this);
+		$(document).mousemove(fnMove);
+		function fnMove(ev){
+			_this.css({
+				'left':	ev.clientX-disX+'px',
+				'top':	ev.clientY-disY+'px'	
+			});
+		}
+		$(document).mouseup(fnUp);
+		function fnUp(){
+			$(document).unbind('mousemove',fnMove);
+			$(document).unbind('mouseup',fnUp);	
+			
+			_this[0].releaseCapture && _this[0].releaseCapture();
+		}
+		this.setCapture && this.setCapture();
+		return false;
+	});	
+};
+
+$(function(){
+	$('#div1').drag();	
+});
+</script>
+</head>
+
+<body>
+23423234<br>
+23423234
+<div id="div1"></div>
+
+</body>
+</html>
