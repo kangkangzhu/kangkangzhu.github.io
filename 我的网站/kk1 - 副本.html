@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/swiper.min.css" />
+<script src="js/swiper.min.js"></script>
+<script src="img/move8.js"></script>
+<script>
+window.onload=function(){
+  var swiper = new Swiper('.swiper-container',{
+		spaceBetween: 20,
+		nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+		pagination: '.swiper-pagination',  //生成小圆点
+  		paginationClickable: true, //允许圆点点击
+		loop:true,
+		mousewheelControl: true,
+		keyboardControl: true,
+		effect: 'cube',
+		direction: 'vertical'
+	});
+	
+var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	var oBlock=document.getElementById('bl');
+	var nowLeft=0;//记录一个激活位置
+	var l=0;//记录blockLI	当前位置
+	
+	for(var i=0;i<aLi.length-1;i++){
+		aLi[i].onmouseover=function(){
+			move(oBlock,this.offsetLeft);	
+		};	
+		aLi[i].onmouseout=function(){
+			move(oBlock,nowLeft);	
+		};	
+		aLi[i].onclick=function(){
+			clearInterval(oBlock.timer);//点击后不要弹性
+			oBlock.style.left=this.offsetLeft+'px';//点击后立马到位
+			l=this.offsetLeft;//更新当前位置
+			nowLeft=this.offsetLeft;//更新激活位置
+		};
+	}
+	
+	function move(obj,iTarget){
+		var speed=0;
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			speed+=(iTarget-obj.offsetLeft)/6;//加速度
+			speed*=0.7;
+			l= l + speed	//当前位置每次用l变量存起来
+			obj.style.left=Math.round(l)+'px';
+			
+			
+			if(iTarget==obj.offsetLeft && Math.abs(speed)<1){
+				clearInterval(obj.timer);	
+			}
+			console.log(iTarget,obj.offsetLeft,speed);	
+		},30);
+	}	
+
+(function(){
+	var aLi=document.getElementById('skill').children;
+	var zIndex=1;
+	var aPos=[];
+	//1.布局转换
+	for(var i=0;i<aLi.length;i++){
+		aPos.push({left:aLi[i].offsetLeft,top:aLi[i].offsetTop});	
+		aLi[i].style.left=aPos[i].left+'px';
+		aLi[i].style.top=aPos[i].top+'px';
+	}
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].style.position='absolute';	
+		aLi[i].style.margin=0;
+		aLi[i].index=i;
+	}
+	//2.批量拖拽
+	for(var i=0;i<aLi.length;i++){
+		drag(aLi[i]);	
+	}
+	function drag(obj){
+		obj.onmousedown=function(ev){
+			obj.style.zIndex=zIndex++;
+			clearInterval(obj.timer);
+			var e=ev||event;	
+			var disX=e.clientX-obj.offsetLeft;
+			var disY=e.clientY-obj.offsetTop;
+			document.onmousemove=function(ev){
+				var e=ev||event;
+				obj.style.left=e.clientX-disX+'px';
+				obj.style.top=e.clientY-disY+'px';	
+				
+				//3.碰撞检测 && 找最近的
+				
+				var nearObj = findNearest(obj);//存最近
+				//拿着的是obj		被撞的nearObj
+				if(nearObj && nearObj!=obj){//有可能还是自个房子近,排除
+					var n=obj.index;
+					var m=nearObj.index;
+					
+					for(var i=0;i<aLi.length;i++){
+						if(n<m){
+							//←		n<谁<=m
+							if(aLi[i].index>n	&& aLi[i].index<=m){
+								aLi[i].index--;
+								move(aLi[i],{left:aPos[aLi[i].index].left,top:aPos[aLi[i].index].top});	
+							}
+						}else{
+							//→		n>谁>=m
+							if(aLi[i].index<n	&& aLi[i].index>=m){
+								aLi[i].index++;
+								move(aLi[i],{left:aPos[aLi[i].index].left,top:aPos[aLi[i].index].top});	
+							}
+						}
+					}
+					
+					obj.index=m;
+					
+				}
+			};
+			document.onmouseup=function(){
+				document.onmousemove=document.onmouseup=null;	
+				
+				//up时回自个位置
+				
+				move(obj,{left:aPos[obj.index].left,top:aPos[obj.index].top});
+				
+			};
+			return false;
+		};		
+	}
+	
+	function findNearest(obj){
+		var minDis=9999999999;
+		var minDisIndex=-1;
+		for(var i=0;i<aLi.length;i++){
+			//if(obj==aLi[i]) continue;
+			if(collTest(obj,aLi[i])){//撞到了没
+				//既然撞到了，找最近
+				var dis = getDis(obj,aLi[i]);//求距离
+				if(dis<minDis){
+					minDis=dis;
+					minDisIndex=i;
+				}	
+			}
+		}
+		if(minDisIndex==-1){
+			return null;	
+		}else{
+			return aLi[minDisIndex];	
+		}
+			
+	}
+	
+	function getDis(obj1,obj2){//obj1到obj2的房子的距离
+		var a=aPos[obj2.index].left-obj1.offsetLeft;
+		var b=aPos[obj2.index].top-obj1.offsetTop;	
+		return Math.sqrt(a*a+b*b);
+	}
+	
+	function collTest(obj1,obj2){//obj1,和obj2的房子撞
+		var l1=obj1.offsetLeft;
+		var t1=obj1.offsetTop;
+		var r1=obj1.offsetLeft+obj1.offsetWidth;
+		var b1=obj1.offsetTop+obj1.offsetHeight;
+		
+		var l2=aPos[obj2.index].left;//obj1和obj2的房子撞
+		var t2=aPos[obj2.index].top;
+		var r2=aPos[obj2.index].left+obj2.offsetWidth;
+		var b2=aPos[obj2.index].top+obj2.offsetHeight;
+		
+		if(l1>r2||t1>b2||r1<l2||b1<t2){
+			return false;
+		}else{
+			return true;	
+		}
+	}
+	})()
+		
+	
+	
+	
+};
+</script>
+<style>
+html{height:100%;}
+body{ height:100%}
+	*{ padding:0; margin:0; list-style:none;}
+	.swiper-container {
+        width: 100%;
+        height: 90%;
+        margin: 0px auto;
+		padding-top:100px;
+		font-weight:bold;
+		color:black; font-size:20px; text-align:center;
+    }
+	
+	.swiper-wrapper div{line-height:300px;}
+	#nav{ width:100%;  height:100px; background:#fff; position:fixed; top:0; z-index:100; opacity:1; line-height:100px; background:#ccc; border-radius:10px;}
+	#nav ul{width:100%; margin:0 auto; position:absolute;top:10px; left:600px; top:25px;}
+	#nav ul li{width:100px;height:50px; border:#666 solid 0px; float:left; text-align:center; line-height:50px; z-index:1000}
+	#nav ul li.block{ background:#09C; position:absolute;left:0;top:0; z-index:-1;
+	border-radius:10px;}	
+	#logo{ width:350px; height:100px; background:red; margin-left:120px; border-radius:20px; overflow:hidden;}
+	#logo img{width:350px; height:100px;}
+	
+#skill{width:900px; height:420px;margin: 30px auto 0; border:10px solid red;}
+#skill li{width:128px;height:128px; float: left;margin:30px; border: #000 solid 10px; background:#fff;}	
+#skill li img{display:block}
+</style>
+</head>
+
+<body>
+	<div class="swiper-container">
+  	<div id="nav">
+        <div id="logo">
+        	<img src="img/logo.png">
+        </div>
+    	<ul id="ul1">
+        	<li>首页</li>
+            <li>关于我</li>
+            <li>积淀</li>
+            <li>学无止境</li>
+            <li>留言版</li>
+			<li class="block" id="bl"></li>
+        </ul>
+    </div>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style=" background:url(yi.png) no-repeat"></div>
+            <div class="swiper-slide">
+            		<ul id="skill">
+                        <li><img src="img/img4/1.png"></li>
+                        <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>
+                          <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>
+                         <li><img src="img/img4/1.png"></li>   
+					</ul>
+            </div>
+            <div class="swiper-slide" style=" background:url(yi.png) no-repeat"></div>  
+            <div class="swiper-slide" style=" background:url(er.png) no-repeat;"></div>
+            <div class="swiper-slide" style="background:#999;">3</div>
+            <div class="swiper-slide" style="background:#CCC;">4</div>
+        </div>
+        
+        <!--左右按钮-->
+        <!--<div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>-->
+        
+        <!--小圆点-->
+        <div class="swiper-pagination"></div>
+
+    </div>
+    
+</body>
+</html>
