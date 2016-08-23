@@ -11,6 +11,92 @@
 <script src="js/move2.js"></script>
 <script>
 window.onload=function(){
+	
+	
+	
+	
+	var oBigBall=document.getElementById('yuanquan');	
+	var oBtn3=document.getElementById('yuan_btn');	
+	var aSmallBall=document.getElementsByClassName('smallBall1');
+		
+	var r = oBigBall.offsetWidth/2;
+	var bl=true;
+	
+	//创建多个小圆
+	var count=3;
+	
+	for(var i=0;i<aSmallBall.length;i++){
+		//var oSmallBall=document.createElement('div');
+		//oSmallBall.className='smallBall1';
+		//document.body.appendChild(oSmallBall);
+		
+		setPos3(aSmallBall[i],0);//i*(90/(count-1))	
+		aSmallBall[i].rotate=0;
+	}
+	
+	oBtn3.onclick=function(){
+		oBtn3.disabled=true;
+		if(bl){
+			//小圆去各自的角度上move.......
+			for(var i=0;i<aSmallBall.length;i++){
+				move3(aSmallBall[i],i*(360/(count)));	
+			}
+			oBtn3.value='-';
+			bl=false;
+		}else{
+			//	小圆会到了0角度
+			for(var i=0;i<aSmallBall.length;i++){
+				move3(aSmallBall[i],0);	
+			}
+			oBtn3.value='+';
+			bl=true;	
+		}
+	};
+	
+	function move3(obj,iTarget){
+		var start=obj.rotate;
+		var dis=iTarget-start;
+		var count=300/30;
+		var n=0;		
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			n++;
+			//办事
+			var a=1-n/count;
+			var cur=start+dis*(1-a*a*a);
+			
+			setPos3(obj,cur);
+			
+			obj.rotate=cur;
+			
+			if(n==count){
+				clearInterval(obj.timer);	
+				oBtn3.disabled=false;
+			}
+		},30);
+	}
+	
+	function setPos3(obj,ang){
+		var a=Math.sin(a2r(ang))*r;
+		var b=Math.cos(a2r(ang))*r;
+		
+		obj.style.left=oBigBall.offsetLeft+r+a+'px';
+		obj.style.top=oBigBall.offsetTop+r-b+'px';	
+	}
+	
+	function a2r(n){
+		return n*Math.PI/180	
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
   var swiper = new Swiper('.swiper-container',{
 		spaceBetween: 20,
 		nextButton: '.swiper-button-next',
@@ -280,8 +366,8 @@ margin-left:-65px; color:#fff; background:url(images/u=3884929303,1726512544&fm=
  background-position:-30px 0px;}
 #shouye1  .p1{line-height:16px; font-size:20px; font-weight: bold; color:#fff; position:absolute; top:350px; left:50%;
  margin-left:-40px;}
- #shouye1  .p2{line-height:16px; font-size:20px; font-weight: bold; color:#fff; position:absolute; top:380px; left:50%;
- margin-left:-70px;}
+ #shouye1  .p2{line-height:16px; font-size:20px; font-weight: bold; color:#fff; position:absolute; top:410px; left:50%;
+ margin-left:-26px;}
  
 #shouye1 h3{font-size:40px;position:absolute; margin:0; padding:0; line-height:40px; left:50%; margin-left:-80px; margin-top:20px;}
 #shouye1 .sh{margin:0; position:absolute; font-size:20px; margin:0; padding:0; line-height:20px;  left:50%; margin-left:-40px;
@@ -318,7 +404,10 @@ body{ height:100%}
 
 #fadein{ width:700px; height:180px;position:absolute; bottom:60px; left:50%;
 margin-left:-350px;}	
-#fadein ol li{position:absolute; left:0; top:0; width:100%; height:100%; opacity:0;}
+#fadein ol li{position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; background:url(exp_list_bg1.jpg); background-size:100%;}
+#fadein ol li p{margin:0; padding:0; line-height:1.5em; text-align:left; margin-left:20px;}
+
+
 
 .experience{height:100%; background-size:100%; margin:0 auto; background: url(images/upload/pic_2.jpg); background-size:100%;}
 .experience h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
@@ -428,6 +517,41 @@ margin-left:-350px;}
 .resume h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
 .resume_name{width:500px;margin-left:260px; margin-top:40px;}
 .resume_name p{ font-size:24px; line-height:26px; text-align:left;}
+
+
+
+@keyframes run{
+		from{transform:rotate(0deg);}
+		to{transform:rotate(360deg);}
+	}
+@keyframes revers{
+		from{transform:rotate(360deg);}
+		to{transform:rotate(0deg);}
+	}
+.web_circle{ width:1000px; height:300px;position:relative; top:49px; z-index:10;}
+.green_circle{ width:200px; height:200px; border-radius:50%;position:absolute; left:50%; top:50%; margin-top:-100px; margin-left:-100px;background-size:100%;
+}
+.yellow_circle{ width:170px; height:170px;border-radius:50%;position:absolute;
+left:50%; top:50%; margin-top:-85px; margin-left:-85px;background-size:100%;}
+.blue_circle{ width:150px; height:150px;  border-radius:50%;position:absolute; left:50%; top:50%; margin-top:-75px; margin-left:-75px;background-size:100%;}
+.green_circle img{ width:200px; height:200px; animation:run 2s linear infinite;}
+.yellow_circle img{ width:170px; height:170px;animation:revers 2s linear infinite;}
+.blue_circle img{ width:150px; height:150px;animation:run 2s linear infinite;}
+
+
+#yuanquan{width:300px;height:300px;position:absolute;left:50%; top:50%; margin-left:-150px; margin-top:50px;
+border:#00F 1px solid; border-radius:50%;}
+.smallBall1{width:100px;height:40px;border-radius:25px; position:absolute;left:0;top:0;margin-left:-50px;margin-top:-20px; color:black}
+#yuan_btn{position:absolute;font-size:30px; top:80px; right:470px;}
+.icon_blog div{ width:50px; height:40px; background:url(icon/blog.png) no-repeat; background-size:100%; position:absolute; z-index:10; background-position:0px -10px;}
+.icon_weibo div{ width:50px; height:40px; background:url(icon/weibo.png) no-repeat; background-size:100%; background-position:0 -7px;}
+.icon_github div{ width:50px; height:40px; background:url(icon/github.png) no-repeat; background-size:100%; background-position:0 -7px;}
+.icon_blog { z-index:10; background:#0CF}
+.icon_github{ background:#3CC}
+.icon_weibo{ background:#39F}
+.icon_blog a{ position:absolute; top:16px; font-size:14px; margin-right:3px;}
+.icon_weibo a{position:absolute; top:16px;font-size:14px; margin-right:13px;}
+.icon_github a{position:absolute;top:16px;font-size:14px; right:5px;}
 </style>
 </head>
 <body>
@@ -450,12 +574,42 @@ margin-left:-350px;}
         <div class="swiper-wrapper">
             <div class="swiper-slide">
             	<div id="shouye">
+                	
+                	<div style="width:100%; height:400px;position:absolute;" class="web_circle";>                    		
+                            <div class="smallBall1 icon_blog">
+                            	<div class="blog"></div>
+                                <a href="#">博客</a>
+                            </div>
+                            <div class="smallBall1 icon_weibo">
+                            	<div class="weibo"></div>
+                            	<a href="#">微博</a>
+                            </div>
+                            <div class="smallBall1 icon_github">
+                            	<div class="github"></div>
+                                <a href="#">GitHub</a>
+                            </div>
+                            <div style="position:relative; background:pink;">
+                           		 <div id="yuanquan"></div>
+                            	<input type="button" id="yuan_btn" value="+">
+                       		</div>
+                                                
+                        
+                    	<div class="green_circle">
+    					<img src="icon/green_cycle.svg">
+    						<div class="yellow_circle">
+        						<img src="icon/yellow_cycle.svg">
+        						<div class="blue_circle">
+            						<img src="icon/blue_cycle.svg">
+            					</div>
+        					</div>
+    				</div>	
+                    </div>
                 	<div id="shouye1">
                      <h3>我的首页</h3>
                      <p class="sh">-shouye-</p>
                     	 <div class="icon"></div>
-                         <p class="p1">XIAOKANG</p>
-                         <p class="p2">XuZhou.JiangSu</p>
+                         <p class="p1"></p>
+                         <p class="p2">小康</p>
                     </div>
                 </div>
             </div>
@@ -473,12 +627,32 @@ margin-left:-350px;}
                         </ol>
                         <div id="fadein">
                         	<ol id="fadein_ol">
-                            	<li style=" width:700px; height:180px; background:pink; opacity:1">1</li>
-                                <li style=" width:700px; height:180px; background:green">2</li>
-                                <li style=" width:700px; height:180px; background:yellow">3</li>
-                                <li style=" width:700px; height:180px; background:black">4</li>
-                                <li style=" width:700px; height:180px; background:yellow">3</li>
-                                <li style=" width:700px; height:180px; background:black">4</li>
+                            	<li style=" opacity:1;">
+                                	<p>熟练运用css及css3新属性</p>
+                                    <p>注重浏览器兼容性，熟悉常见的css hack（兼容至IE8）</p>
+                                    <p>掌握bootstrap框架及源码的实现</p>
+                                    <p>掌握css预编译器Less及Sass</p>                           
+                                </li>
+                                <li>
+                                	<p>深刻理解Web标准</p>
+                                    <p>熟练运用html标签</p>
+                                    <p>熟悉xml及xhtml标记语言</p>
+                                    <p>掌握html5如SVG，localstorage新特性</p>                               
+                                </li>
+                                <li>
+                                	<p>	掌握jQuery</p>
+                                    <p>掌握原生JS的编程</p>
+                                    <p>注重JavaScript性能优化</p>
+                                    <p>正在学习ES6</p>
+                                </li>
+                                <li>
+                                	<p>AngularJs</p>
+                                    <p>熟练运用angularJS处理移动端的模块开发</p>
+                                    <p>模块组件化</p>
+                                    <p>熟练的指令编写</p>
+                                </li>
+                                <li>3</li>
+                                <li>4</li>
                             </ol>
                         </div>	
                     </div>
