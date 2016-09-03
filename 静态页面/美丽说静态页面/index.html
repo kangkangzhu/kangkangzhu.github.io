@@ -1,0 +1,949 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="common.css"/>
+<style>
+.nav{
+	width:1200px;
+	height:30px;
+	border-bottom:1px solid #eee;
+	margin-bottom:40px;
+}
+.nav .nav_top{
+	height:20px;
+	margin-top:4px;
+	float:right;
+}
+.nav .nav_top li{
+	height:20px;
+	float:left;
+	border-left:1px dashed #ccc;
+	padding:0px 15px;
+	}
+.nav .nav_top li a{
+	display:block;
+	float:left;
+	font:12px/1 "微软雅黑";
+	text-align:center;
+	line-height:20px;
+	color:#666;
+}
+.nav .nav_top li i{
+	width:20px;
+	height:20px;
+	background:black;
+	float:left;
+	margin-right:5px;
+}
+.nav .nav_top li.weixin{
+	border-left:none;
+}
+.nav .nav_top .weixin i{
+	background:url(img/weixin.png) no-repeat 50% 50%;
+	}
+.nav .nav_top .qq i{
+	background:url(img/qq.png) no-repeat 50% 50%;
+}
+.nav .nav_top .car i{
+	background:url(img/car.png) no-repeat 50% 50%;
+	}
+.nav .nav_top .dingdan i{
+	background:url(img/page.png) no-repeat 50% 50%;
+	}
+.nav .nav_top .huangguan i{
+	background:url(img/index.png) no-repeat 50% 50%;
+	}
+.nav .nav_top .xiazai i{
+	background:url(img/shouji.png) no-repeat 50% 50%;
+}
+.nav .nav_top .car b{
+	float:left;
+	width:20px;
+	height:15px;
+	background:#f69;
+	text-align:center;
+	line-height:15px;
+	margin-top:3px;
+	color:#fff;
+	margin-left:3px;
+}
+.nav .nav_top .xiazai b{
+	float:left;
+	width:6px;
+	height:3px;
+	background:url(img/xiajiantou.png) no-repeat 50% 50%;
+	margin-top:10px;
+	margin-left:3px;
+	}
+	
+	
+	
+.search{
+	width:1200px;
+	height:45px;
+	position:relative;
+	padding-bottom:36px;
+}
+.search .meilishuo{
+	width:278px;
+	height:45px;
+	background:url(img/higou.png) 50% 50% no-repeat;
+}
+.search .higou{
+	width:143px;
+	height:45px;
+	background:url(img/meilishuo.png) no-repeat 50% 50%;
+	margin-top:-45px;
+}
+
+
+.search_center{
+	width:521px;
+	height:56px;
+	margin-left:200px;
+	position:absolute;
+	left:360px;
+	top:-20px;
+	margin-left:-40px;
+}
+.search_center_top a{
+	display:block;
+	width:57px;
+	height:28px;
+	background:#ccc;
+	font:12px "宋体";
+	text-align:center;
+	line-height:28px;
+}
+
+
+.search_center_bottom input{
+	width:442px;
+	height:27px;
+	border:2px solid #f69;
+} 
+.search_center_bottom  a{
+	width:75px;
+	height:33px;
+	background:url(img/fangdajing.png) no-repeat 50% 50%;
+	margin-left:-3px;
+	margin-top:-1px;
+}
+.search_center_top a:hover{
+	background:#f69;
+	color:#fff;
+}
+
+
+.main{
+	width:1210px;
+	height:470px;
+	margin-bottom:46px;
+}
+.banner .nava {
+	width:1210px;
+	height:47px;
+	border-bottom:1px solid pink;	
+}
+.banner .nava a{
+	display:block;
+	float:left;
+	padding:12px 20px;
+	font:12px/1 "宋体";
+}
+.banner_left_c{
+	float:left;
+	width:238px;
+	height:570px;
+}
+.banner_left_c li{
+	width:210px;
+	height:100px;
+	padding-top:15px;
+	padding-left:20px;
+	border-bottom:1px dotted #ccc;
+}
+.banner_left_c li h3{
+	float:left;
+	width:100%;
+	margin-bottom:12px;
+	font:16px/1 "微软雅黑";
+	color:#fe86a5;
+}
+.banner_left_c li a{
+	display:block;
+	float:left;
+	font:12px/1 "微软雅黑";
+	margin-right:12px;
+	margin-bottom:12px;
+}
+
+.banner_right{
+	float:right;
+	width:959px;
+	height:570px;
+	position:relative;
+}
+.banner_right .top{
+	width:960px;
+	height:420px;
+	background:url(img/a.jpg);
+	position:relative;
+}
+.banner_right .top .zuo{
+	width:36px;
+	height:39px;
+	background:url(img/bnr_btn_left1.png) no-repeat;
+	position:absolute;
+	left:0px;
+	top:50%;
+	margin-top:-20px;
+	display:none;
+}
+.banner_right .top:hover .zuo{
+	display:block;}
+.banner_right .top:hover .you{
+	display:block;}
+.banner_right .top .you{
+	width:36px;
+	height:39px;
+	background:url(img/bnr_btn_right1.png) no-repeat;
+	position:absolute;
+	right:0px;
+	top:50%;
+	margin-top:-20px;
+	display:none;
+}
+.qiu ol li{
+	display:block;
+	width:20px;
+	height:20px;
+	background:url(img/xiaoqiu.png) no-repeat 50% 50%;
+	float:left;
+	margin-right:16px;
+}
+.qiu ol {
+	position:absolute;
+	top:389px;
+	left:50%;
+	margin-left:-30px;
+	}
+.qiu ol li.daqiu{
+	background:url(img/daqiu.png) no-repeat 50% 50%;
+}
+.banner_right_bottom{
+	width:959px;
+	height:149px;
+}
+.banner_right_bottom ul li{
+	width:182px;
+	float:left;
+    margin-left:9px;
+	}
+.banner_right_bottom ul li a{
+	display:block;
+	width:182px;
+	height:146px;
+	background:url(img/c7735b5cb71711601a1f4650ce29_182_145.cg.jpg) no-repeat 50% 50%;
+}
+
+
+.title_aa{
+	margin-bottom:20px;
+	}
+.title_aa h3{ margin:0; padding:0; float:left; background:#fff;font:22px "微软雅黑"; color:#999;}   
+.title_aa h3 span{ font:10px "微软雅黑"; color:#666; margin-left:4px;}                    }
+.box{  border-bottom:1px solid #ccc; text-align:right;}	
+.title_kuang{
+	width:1200px;
+	height:181px;}
+.title_kuang li{
+	float:left;
+	width:182px;
+	margin-right:18px;
+}
+.title_kuang li a{
+	display:block;
+	width:182px;
+	height:182px;
+	background:url(img/waitao.png) no-repeat 50% 50%;
+	}
+
+.box_xpjx{
+    width:1200px;
+	height:880px;
+}
+.box_xpjx .box_xpjx_tu li {
+	float:left;
+	margin-left:20px;
+	margin-bottom:28px;
+}
+.box_xpjx .box_xpjx_tu li.diyi {
+	margin-left:0px;
+	
+}
+
+.box_xpjx_title { margin-top:100px; margin-bottom:20px;}
+.box_xpjx_title h3{ margin:0; padding:0; float:left; background:#fff; font:22px "微软雅黑"; color:#999;}
+.box_xpjx_title .box{  border-bottom:1px solid #ccc; text-align:right;}
+.box_xpjx_title h3 span{ font:10px "微软雅黑"; color:#666; margin-left:4px;}
+
+.box_xpjx_tu li{
+	width:224px;
+}
+.box_xpjx_tu li a{
+	display:block;
+	width:224px;
+	height:400px;}
+.box_xpjx_tu li a .tu{
+	width:224px;
+	height:342px;
+	background:url(img/z.png) no-repeat 50% 50%;
+	margin-bottom:16px;
+}
+.box_xpjx_tu li a .jiage{
+	font:16px "微软雅黑";
+	color:#ff74a1;
+	margin-left:4px;
+	margin-bottom:0px;
+}
+.box_xpjx_tu li a .name{
+	font:12px "微软雅黑";
+	color:#666;
+}
+
+
+.box_mxtk{
+	width:1200px;
+	height:435px;
+	margin-bottom:40px;
+}
+.box_mxtk h3{ margin:0; padding:0; float:left; background:#fff;font:22px "微软雅黑"; color:#999;}
+.box_mxtk .box{  border-bottom:1px solid #ccc; text-align:right;}
+.box_mxtk h3 span{ font:10px "微软雅黑"; color:#666; margin-left:4px;}
+.mxtk_title{margin-bottom:20px;}
+
+.box_mxtk .tutu .tp{
+	width:386px;
+	height:258px;
+	background:url(img/yienhui.png) no-repeat 50% 50%;
+	margin-bottom:20px;
+}
+.box_mxtk a.tutu {
+	display:block;
+	width:386px;
+	height:388px;}
+.box_mxtk a .desire{
+	font:12px "微软雅黑";
+	color:#ff66a6;
+	margin-right:13px;
+}
+.box_mxtk a .jiage{
+	font:16px "宋体";
+	color:#ff66a6;
+	margin-right:28px;
+}
+
+.box_mxtk a .jiangjia{
+	font:12px "微软雅黑";
+	color:#ccc;
+	text-decoration:line-through;
+}
+.box_mxtk a .er{
+	font:12px "微软雅黑";
+}
+.box_mxtk a .san{
+	font:12px/2 "宋体";
+	color:#666;}
+
+.box_mxtk a.tutu{
+	float:left;
+}
+.box_mxtk a.tutu{
+	margin-left:20px;
+}
+.box_mxtk a.tutu1{
+	margin-left:0;}
+	
+	
+
+.box_shmz_title h3{ margin:0; padding:0; float:left; background:#fff;font:22px "微软雅黑"; color:#999;}
+.box_shmz_title .box{  border-bottom:1px solid #ccc; text-align:right; font:10px "微软雅黑"; color:#ccc;}
+.box_shmz_title h3 span{ font:10px "微软雅黑"; color:#666; margin-left:4px;}
+.box_shmz{
+	width:1200px;
+	height:569px;
+	margin-bottom:30px;
+}
+.box_shmz_title{
+	margin-bottom:20px;
+}
+
+.box_shmz .ssmz{
+	display:block;
+	width:387px;
+	height:528px;
+	margin-left:18px;
+}
+.box_shmz .ssmz .ssmz_tp{
+	width:386px;
+	height:384px;
+	background:url(img/jiaomu.png) no-repeat 50% 50%;
+	margin-bottom:20px;
+}
+.box_shmz .ssmz .ssmz_jg{
+	 color:#ff7ba8;
+	 margin-bottom:10px;
+	 font:bold 16px "宋体";
+}
+.box_shmz .ssmz .ssmz_yj{
+	font:14px "微软雅黑";
+	color:#666;
+	margin-bottom:10px;
+}
+.box_shmz .ssmz .text{
+	font:10px/1 "微软雅黑";
+	color:#666;
+	margin-bottom:10px
+}
+.box_shmz .ssmz ul{
+	height:20px;
+	}
+.box_shmz .ssmz ul li{
+	line-height:20px;
+	float:left;
+	margin-right:10px;
+	color:#f69;
+}
+.box_shmz .ssmz ul li.yp{
+	width:20px;
+	height:20px;
+	background:url(img/yp.png) no-repeat 50% 50%;
+}
+.box_shmz .ssmz.d1{
+	margin-left:0px;
+}
+
+
+.box_foot{
+	width:1200px;
+	height:217px;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	padding-bottom:33px;
+}
+.box_ul_foot{
+	width:1200px;
+	height:184px;
+	background:#f5f5f5;
+	padding-top:15px;
+}
+.box_ul_foot ul li{
+	float:left;
+}
+.box_ul_foot ul li.phone{
+	width:35px;
+	height:184px;
+	background:url(img/phone.png) no-repeat;
+	margin-right:13px;
+}
+.box_ul_foot ul li.d1{
+	margin-right:45px;
+}
+.box_ul_foot ul li.m{
+	width:145px;
+	height:184px;
+}
+.box_ul_foot  .box_ul_foot  p.num{
+	font:16px "宋体";
+	color:#666;
+}
+.box_ul_foot  .box_ul_foot p.rx{
+	font:14px "宋体";
+	font:#333;
+}
+.box_ul_foot  .box_ul_foot p{
+	margin-bottom:14px;
+}
+.box_ul_foot  .box_ul_foot p.d2{
+	font: bold 16px "微软雅黑";
+	color:#333;
+}
+.box_ul_foot  .box_ul_foot p.d3{
+	font:12px "微软雅黑";
+	color:#666;
+}
+.box_ul_foot  .box_ul_foot p.weixinfuwu{
+	font: bold 16px "微软雅黑";
+	margin-bottom:20px;
+}
+.box_ul_foot  .box_ul_foot p.weixintu{
+	width:115px;
+	height:115px;
+	background:url(img/erweima.png) 50% 50% no-repeat;
+}
+.end{
+	background:#f5f5f5;
+	margin-top:30px;
+}
+
+.end ul{
+	height:30px;
+	width:1200px;
+	border-bottom:1px #ccc solid;
+	border-top:1px #ccc solid;	
+	}
+.end_top ul li{
+	float:left;
+	margin-left:10px;
+	font:12px "宋体";
+	color:#666;
+	line-height:30px;
+}
+.end_bottom p{
+	font:10px/2 "宋体";
+	color:#666;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+<div class="nav clearfix">
+		<ul class="nav_top clearfix">
+        		<li class="weixin">
+                        <i></i>
+                		<a href="javscript:;">微信登录</a>
+                </li>
+        		<li class="qq">
+                        <i></i>
+                		<a href="javascript:;">QQ登录</a>
+                </li>                
+        		<li>
+                		<a href="javascript:;">登录</a>
+                </li>  
+        		<li >
+                		<a href="javascript:;">注册</a>
+                </li>
+          		<li class="car">
+                        <i></i>
+                		<a href="javascript:;">我的购物车</a>
+                        <b>0</b>
+                </li>
+                <li class="dingdan">    
+                        <i></i>
+                		<a href="javascript:;">我的订单</a>
+                </li>
+                <li class="huangguan">    
+                        <i></i>
+                		<a href="javascript:;">美丽说会员</a>
+                </li>
+                <li class="xiazai">    
+                        <i></i>
+                		<a href="javascript:;">下载App</a>
+                        <b></b>
+                </li>
+                <li>
+                		<a href="javascript:;">帮助中心</a>
+                </li>         
+        </ul>
+</div>
+
+<div class="search clearfix">
+     <div class="meilishuo"></div>
+     <div class="higou fr"></div>
+     <div></div>    
+     <div class="search_center">
+           <div class="search_center_top clearfix">
+             		<a href="javascript:;" class="fl">宝贝</a>
+             		<a href="javascript:;" class="fl">店铺</a>
+           </div>
+           <div class="search_center_bottom clearfix">
+             		<input type="text" alt="sousuo" class="fl"/>
+            		<a href="javascript:;"class="fl"></a>
+           </div>
+      </div>
+</div>
+
+<div class="main clearfix">
+    <div class="banner">
+       <div class="nava clearfix">
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>                    
+          <a href="javascript:;">首页</a>          
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>  
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>
+          <a href="javascript:;">首页</a>       
+       </div>
+     </div>
+  <div class="banner_right ">
+     <ul class="top">
+        <li class="zuo"></li>
+        <li class="you"></li>
+     </ul> 
+     <div class="qiu">
+        <ol class="clearfix";>
+           <li></li>
+           <li></li>
+           <li class="daqiu"></li>
+           <li></li>
+        </ol>  
+     </div> 
+ <div class="banner_right_bottom">
+      <ul class="tu">
+         <li><a href="javascript:;"></a></li>
+         <li><a href="javascript:;"></a></li>
+         <li><a href="javascript:;"></a></li>
+         <li><a href="javascri :;"></a></li>
+         <li><a href="javascript:;"></a></li>
+      </ul>
+ </div>
+  </div>
+  <div class="banner_left clearfix">
+         <ul class="banner_left_c">
+            <li class="banner_left_cc ">
+                  <h3>每日精选</h3>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+            </li>
+           <li class="banner_left_cc ">
+                  <h3>每日精选</h3>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+            </li>
+            <li class="banner_left_cc ">
+                  <h3>每日精选</h3>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+            </li>
+            <li class="banner_left_cc ">
+                  <h3>每日精选</h3>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+            </li>
+            <li class="banner_left_cc ">
+                  <h3>每日精选</h3>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+                  <a href="javascript:;">街头混搭</a>
+            </li>
+          </ul>  
+    </div>
+</div>
+
+<div class="box2">
+		<div class="title_aa clearfix">
+			<h3 class="fl"> 疯狂星期五 <span>正确流行  新款大促</span></h3>
+			<div class="box">
+				<a href="javascript:;">往期回顾</a>
+			</div>
+		</div>
+        <ul class="title_kuang">
+        		<li class="waitao">
+                		<a href="javascript:;"></a>
+                </li>
+        		<li class="taozhuang">
+                		<a href="javascript:;"></a>
+                </li>
+                <li class="zhenzhiqun">
+                		<a href="javascript:;"></a>
+                </li>
+              	<li class="lianyiqun">
+                		<a href="javascript:;"></a>
+                </li>
+                <li class="xuezi"> 
+                		<a href="javascript:;"></a>
+                </li>
+                <li class="huodixue">
+                		<a href="javascript:;"></a>
+                </li>
+        </ul>	
+</div>
+
+
+<div class="box_xpjx">
+		<div class="box_xpjx_title clearfix">
+			<h3 class="fl">新品精选<span>尖货来袭  要你好看</span></h3>
+			<div class="box">
+				<a href="javascript:;">往期回顾</a>
+			</div>
+		</div>
+        <ul class="box_xpjx_tu clearfix">
+        	<li class="diyi">
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li class="diyi">
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+            <li>
+            	<a href="jacascript:;">
+                  <div class="tu"></div>
+                	<div class="jiage">羊 110.00</div>
+                    <div class="name">秋冬蝙蝠袖波浪边短款外套</div>
+                </a>
+            </li>
+        </ul>
+        
+</div>
+<br/><br/><br/><br/>
+
+<div class="box_mxtk">
+		<div class="mxtk_title clearfix">
+			<h3 class="fl">Desire 明星同款<span>明星热捧最IN单品</span></h3>
+			<div class="box">
+				<a href="javascript:;">往期回顾</a>
+			</div>
+		</div>
+        <div class="clearfix">
+        		<a class="tutu tutu1" href="javascript:;">
+                		<div class="tp"></div>
+                        <div class="yi">
+                        	<span class="desire">DESIRE价：</span>
+                            <span class="jiage">羊209.10</span>
+                            <span class="jiangjia">原价：羊1,650.00</span>
+                        </div>
+                        <div class="er">Samantha Thavasa同款经典锁头包</div>
+                        <div class="san">【日本的香奈儿】VIVI杂质多个模特秀,lena也秀!!韩国少女时代.伊恩惠还有米兰达.都能用得上。</div>
+                </a>
+        		<a class="tutu" href="javascript:;">
+                		<div class="tp"></div>
+                        <div class="yi">
+                        	<span class="desire">DESIRE价：</span>
+                            <span class="jiage">羊209.10</span>
+                            <span class="jiangjia">原价：羊1,650.00</span>
+                        </div>
+                        <div class="er">Samantha Thavasa同款经典锁头包</div>
+                        <div class="san">【日本的香奈儿】VIVI杂质多个模特秀,lena也秀!!韩国少女时代.伊恩惠还有米兰达.都能用得上。</div>
+                </a>
+                <a class="tutu" href="javascript:;">
+                		<div class="tp"></div>
+                        <div class="yi">
+                        	<span class="desire">DESIRE价：</span>
+                            <span class="jiage">羊209.10</span>
+                            <span class="jiangjia">原价：羊1,650.00</span>
+                        </div>
+                        <div class="er">Samantha Thavasa同款经典锁头包</div>
+                        <div class="san">【日本的香奈儿】VIVI杂质多个模特秀,lena也秀!!韩国少女时代.伊恩惠还有米兰达.都能用得上。</div>
+                </a>
+        </div>
+</div>
+
+<div class="box_shmz clearfix">
+		<div class="box_shmz_title">
+        		<h3 class="fl">时尚美妆 <span>优选品牌 明星爆款</span></h3>
+                <div class="box">
+                <a href="javascript:;">更多美妆</a>
+                </div>
+        </div>
+        <div class=" clearfix">
+        		<a class="ssmz fl d1"href="javascript:;">
+                		<div class="ssmz_tp"></div>
+                        <div class="ssmz_jg">羊 6.20</div>
+                        <div class="ssmz_yj">夜间酵素单包</div>
+                        <div class="text">【跳了五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只是为了变成瘦美人。</div>
+                        <ul class="clearfix";>
+                        		<li class="yp"></li>
+                                <li class="">减肥</li>
+                                <li class="fl">排毒</li>
+                                <li class="">新谷</li>
+                        </ul>
+                </a>
+                <a class="ssmz fl"href="javascript:;">
+                		<div class="ssmz_tp"></div>
+                        <div class="ssmz_jg">羊 6.20</div>
+                        <div class="ssmz_yj">夜间酵素单包</div>
+                        <div class="text">【跳了五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只是为了变成瘦美人。</div>
+                        <ul class="clearfix";>
+                        		<li class="yp"></li>
+                                <li class="">减肥</li>
+                                <li class="fl">排毒</li>
+                                <li class="">新谷</li>
+                        </ul>
+                </a>
+                <a class="ssmz fl"href="javascript:;">
+                		<div class="ssmz_tp"></div>
+                        <div class="ssmz_jg">羊 6.20</div>
+                        <div class="ssmz_yj">夜间酵素单包</div>
+                        <div class="text">【跳了五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只是为了变成瘦美人。</div>
+                        <ul class="clearfix";>
+                        		<li class="yp"></li>
+                                <li class="">减肥</li>
+                                <li class="fl">排毒</li>
+                                <li class="">新谷</li>
+                        </ul>
+                </a>
+        </div>
+        
+</div>
+
+
+<div class="box_ul_foot">
+		<ul class="box_ul_foot clearfix">
+        		<li class="phone"></li>
+                <li class="m d1">
+                		<p class="num">4000-800-577</p>
+                        <p class="rx">美丽说客服热线</p>
+                        <p class="">周一至周日：08:00-24：00</p>
+                </li>
+                <li class="mj d1">
+                		<p class="top_a d2">买家帮助</p>
+                        <p class="d3">新手指南</p>
+                        <p class="d3">服务保障</p>
+                        <p class="d3">帮助中心</p>
+                </li>
+                <li class="s d1">
+                        <p class="top_a d2">买家帮助</p>
+                        <p class="d3">新手指南</p>
+                        <p class="d3">服务保障</p>
+                        <p class="d3">帮助中心</p>
+                </li>
+                <li class="g d1">
+                      	<p class="top_a d2">买家帮助</p>
+                        <p class="d3">新手指南</p>
+                        <p class="d3">服务保障</p>
+                        <p class="d3">帮助中心</p>
+                </li>
+                <li class="z d1">
+                  		<p class="top_a d2">买家帮助</p>
+                        <p class="d3 clearfix"><span class="weib_tp fl" style=" width:16px; height:16px; background:url(img/zz.png) no-repeat;"></span><span class="fl">新手指南</span></p>
+
+  <p class="d3 clearfix"><span class="weib_tp fl" style=" width:16px; height:16px; background:url(img/xingixng.png) no-repeat;"></span><span class="fl">新手指南</span></p>
+   <p class="d3 clearfix"><span class="weib_tp fl" style=" width:16px; height:16px; background:url(img/pugongying.png) no-repeat;"></span><span class="fl">新手指南</span></p>
+                </li>
+                <li class="weixin">
+                <p class="weixinfuwu">美丽说微信服务号</p>
+                <p class="weixintu"></p>
+                </li>
+        </ul>
+</div>
+
+<div class="end">
+		<div class="end_top">
+        		<ul>
+                		<li>友情链接：腾讯女性</li>
+                        <li>列表网</li>
+                        <li>太平洋女性网</li>
+                		<li>友情链接：腾讯女性</li>
+                        <li>列表网</li>
+                        <li>太平洋女性网</li>
+                		<li>友情链接：腾讯女性</li>
+                        <li>列表网</li>
+                        <li>太平洋女性网</li>
+                </ul>
+        </div>
+        <div class="end_bottom">
+        		<p>Copyright ©2015 Meilishuo.com  电信与信息服务业务经营许可证100798号 经营性网站备案信息 </p>
+                <p>Copyright ©2015 Meilishuo.com  电信与信息服务业务经营许可证100798号 经营性网站备案信息</p>
+        </div>
+</div>
+
+
+</body>
+</html>

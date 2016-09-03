@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	body{ background:#000;}
+	*{ padding:0; margin:0; list-style:none;}
+	ul{ width:133px; height:200px;  margin:200px auto; position:relative; -webkit-transform-style:preserve-3d; -webkit-transform:perspective(800px) rotateX(-20deg);}
+	li{ height:100%; width:100%; position:absolute; top:0; left:0; background:url(img3/1.jpg); -webkit-transition:1s all ease; box-shadow:0 0 10px #FFF,0 0 20px #FFF,0 0 30px #FFF; -webkit-box-reflect:below 20px -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.4));}
+</style>
+<script>
+	window.onload=function(){
+		var oUl=document.querySelector('ul');
+		var oLi=document.querySelector('li');
+		
+		var N=11;
+		for(var i=0; i<N;i++){
+			var oLi=document.createElement('li');
+			oLi.style.backgroundImage='url(img3/'+(i+1)+'.jpg)';
+			oUl.appendChild(oLi);
+			
+			oLi.style.WebkitTransition='0.5s all ease '+200*(N-i)+'ms';
+			
+			//变的比过渡还快 - 让它慢一些执行
+			(function(oLi,i){
+				setTimeout(function(){
+					oLi.style.WebkitTransform='rotateY('+360/N*i+'deg) translateZ(300px)';	
+				},0);	
+			})(oLi,i);
+				
+	
+		}
+		
+		var aLi=oUl.children;
+		oUl.onclick=function(){
+			
+		};	
+	};
+</script>
+</head>
+
+<body>
+	<ul></ul>
+</body>
+</html>

@@ -1,0 +1,909 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="common.css"/>
+<link rel="stylesheet" href="xm.css"/>
+<style>
+.box_nav_top{
+	width:1226px;
+	background:#333;
+	padding:14px 0px;
+	position:relative;
+	margin-bottom:25px;
+	
+}
+.box_nav_top .nav_top li{
+	float:left;
+	border-right:2px solid #3d3933;
+	}
+.box_nav_top .nav_top li a{
+	padding:0px 8px;
+	color:#b0b0b0;
+	font:12px "微软雅黑";
+}
+.box_nav_top .nav_top li.se{
+		border-right:none;
+      	}
+.box_nav_top .nav_top li.dl{
+	margin-left:400px;
+	border:none;
+}
+.box_nav_top .nav_top li.dl .dll{
+	border-right:2px solid #3d3933;
+}
+.box_nav_top .nav_top li.gouwuche{
+	background:#424242;
+	padding:12px 21px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	padding-bottom:15px;
+}
+.box_nav_top .nav_top li.gouwuche i{
+	float:left;
+	width:20px;
+	height:12px;
+	background:url(car.png) no-repeat 50% 50%;
+	margin-right:3px;
+	margin-top:2px;
+	}
+
+.box_nav_top .nav_top li.gouwuche span{
+	float:left;
+	font:12px "微软雅黑";
+}
+
+.box_mi{
+	width:1228px;
+	height:53px;
+	padding-bottom:25px;
+}
+.box_mi ul li{
+	float:left;
+}
+.box_mi ul li a{
+	padding:20px;
+	display:block;
+	font:14px "宋体";
+	color:#333;	
+}
+.box_mi ul li.tu a{
+	width:56px;
+	height:53px;
+	background:url(mi.png) no-repeat 50% 50%;
+	margin-right:180px;
+	padding:0px;
+}
+.box_nav_search{
+	width:300px;
+	height:50px;
+	float:right;
+	background:url(img/fangdajing.png) no-repeat 241px ;
+}
+.box_nav_search input{
+	width:240px;
+	height:48px;
+	border:1px solid #ccc;
+	float:left;
+}
+.box_nav_search .nav_search{
+	width:53px
+	height:53px;
+	float:left;
+	border:1px solid black;
+	border-radius:none;
+	position:relative;
+}
+.box_nav_search  span{
+	padding:1px 2px;
+	background:#999;
+	font:10px "宋体";
+	position:absolute;
+	margin-left:-70px;
+	margin-top:15px;
+	z-index:10;
+}
+
+.box_friend{
+	margin-bottom:14px;
+	width:1228px;
+	height:461px;
+	background:url(img/feiend.png) no-repeat 50% 50%;
+	position:relative;
+}
+.box_friend_left{
+	width:235px;
+	height:461px;
+	background:#000;
+	opacity:0.4;
+	position:absolute;
+	left:0px;
+	top:0px;
+	
+}
+.box_friend_top{
+	width:205px;
+	height:461px;
+	padding-top:5px;
+	padding-left:30px;
+
+}
+.box_friend_top a{
+	display:block;
+	font:12px/1 "宋体";
+	color:#fff;
+	padding-top:30px;
+	position:relative;
+	z-index:2;
+}
+.box_friend_right{
+	width:993px;
+	height:459px;
+	position:relative;
+}
+.box_friend_right .left{
+	width:46px;
+	height:36px;
+	background:url(img/left.png) no-repeat 50% 50%;
+	position:absolute;
+	left:0px;
+	top:50%;
+	margin-top:-18px;
+	display:none;
+}
+.box_friend_right .right{
+	width:46px;
+	height:36px;
+	background:url(img/right.png) no-repeat 50% 50%;
+	position:absolute;
+	right:0px;
+	top:50%;
+	margin-top:-18px;
+	display:none;
+}
+.box_friend_right:hover .right{
+	display:block;}
+.box_friend_right:hover .left{
+	display:block;}
+
+.box_friend_right ul li{
+	display:block;
+	float:left;
+	width:10px;
+	height:10px;
+	background:#000;
+	margin-left:10px;
+	border-radius:50%;
+}
+.box_friend_right ul li.white{
+	width:8px;
+	height:8px;
+	background:#fff;
+	border:2px solid #000;
+}
+.box_friend_right ul {
+	position:absolute;
+	right:36px;
+	bottom:24px;
+}
+
+.box_zc{
+	width:1228px;
+	height:171px;
+	margin-bottom:42px;
+}
+
+.box_zc_left{
+	float:left;
+	width:240px;
+	height:172px;
+}
+.box_zc_leftblack{
+	width:240px;
+	height:172px;
+	background:#000;
+	opacity:0.66;
+
+}
+.box_zc_left li{
+	float:left;
+	background:#fff;
+	width:78px;
+	height:69px;
+	padding-top:17px;
+	text-align:center;
+	border:1px solid #ccc;
+	border-bottom:none;
+} 
+.box_zc_left li a{
+	display:block;
+	font:12px/1 "宋体";
+	padding-top:34px;
+	color:#fff;
+	background:url(img/sd.png) no-repeat 50% 0;
+	padding-bottom:20px;
+	position:relative;
+	z-index:20;
+}
+.box_zc_right{
+	width:980px;
+	height:173px;
+	background:red;
+	}
+.box_zc_right .tu{
+	float:left;
+	width:308px;
+	height:160px;
+	margin-top:14px;
+	margin-left:17px;
+	background:url(img/tu.png) no-repeat 50% 50%;
+	}	
+.mingxiangdan{
+	width:1226px;
+	height:43px;
+	font:22px "宋体";
+}
+.mingxiangdan i{
+	display:block;
+	float:right;
+	width:70px;
+	height:22px;
+	background:url(img/y.png) no-repeat;
+	border:1px solid  #e0e0e0;
+	margin-top:11px;
+}	
+.box_mingxing{
+	width:1226px;
+	height:325px;
+}
+.box_mingxing ul li{
+	float:left;
+	width:234px;
+	height:325px;
+	background:#fafafa;
+	margin-left:13px;
+}
+.box_mingxing ul li.a1{
+	margin-left:0px;
+	}
+.box_mingxing ul li a{
+	text-align:center;
+	display:block;
+}
+.box_mingxing ul li a div{
+	width:234px;
+	height:230px;
+	background:url(img/bingxiang.png) no-repeat 50% 50%;
+}
+.box_mingxing ul li a .p1{
+	font:12px/1 "宋体";
+	color:#462121;
+	margin-bottom:10px;
+}
+.box_mingxing ul li a .p2{
+	font:12px/1 "宋体";
+	color:#b0b0b0;
+	margin-bottom:20px;}
+	
+.box_mingxing ul li a .p3{
+	font:12px/1 "宋体";
+	color:#fe6709;
+}
+.box_zhineng{
+	width:1226px;
+	height:732px;
+	background:#f5f5f5;
+}
+.box_zhineng .zhineng_top{
+	width:1226px;
+	height:116px;
+}
+.box_zhineng .zhineng_top .name{
+	font:20px/1 "微软雅黑";
+	padding-top:78px;
+}
+.box_zhineng  .zhineng_zuo{
+	float:left;
+	width:249px;
+	height:616px;
+	background:url(img/zhinengzuo.png) no-repeat 50% 50%;
+}
+.box_zhineng ul li{
+	float:left;
+	width:231px;
+	height:302px;
+	background:url(img/cheng.png) no-repeat 50% 50%;
+	margin-left:13px;
+}
+.box_zhineng ul li.d1{
+	margin-bottom:13px;
+	}
+.box_neirong{
+	width:1226px;
+	height:503px;
+}
+.box_neirong .neirong_top{
+	width:1226px;
+	height:80px;
+}
+.box_neirong .neirong_top .name{
+	font:22px/1 "宋体";
+	padding-top:40px;
+}
+.box_neirong .neirong_bottom .d2{
+	float:left;
+	width:296px;
+	height:422px;
+	border-top:1px solid pink;
+	margin-left:14px;
+}
+.box_neirong .neirong_bottom .d2.d1{
+	margin-left:0px;}
+
+.box_neirong .neirong_bottom .d2 a{
+	display:block;
+	width:298px;
+	height:214px;
+	text-align:center;
+}
+.box_neirong .neirong_bottom .d2 a .p1{
+	font:16px/1 "微软雅黑";
+	color:#ffac13;
+	padding-top:50px;
+	padding-bottom:26px;
+}
+.box_neirong .neirong_bottom .d2 a .p2{
+	font:18px/1 "微软雅黑";
+	color:#333;
+	margin-bottom:13px;
+}
+.box_neirong .neirong_bottom .d2 a .p3{
+	font:12px/1 "宋体";
+	color:#b0b0b0;
+	margin-bottom:10px;	
+}
+.box_neirong .neirong_bottom .d2 a .p4{
+	font:12px/1 "宋体";
+	color:#b0b0b0;
+	margin-bottom:20px;	
+}
+.box_neirong .neirong_bottom .d2 a .p5{
+	font:12px/1 "宋体";
+	color:#333;
+}
+.box_neirong .neirong_bottom .d2 .quan{
+	width:298px;
+	height:208px;
+	background:url(img/juzhongju.png) no-repeat 50% 0px;
+	position:relative;
+}
+.box_neirong .neirong_bottom .d2 .quan li{
+	width:6px;
+	height:6px;
+	background:#b0b0b0;
+	border-radius:50%;
+	float:left;
+	margin-left:28px;
+}
+.box_neirong .neirong_bottom .d2 .quan li.qiuyi{
+	width:6px;
+	height:6px;
+	background:#fff;
+	border:3px solid #ff6700;
+	margin-top:-2px;
+}
+.box_neirong .neirong_bottom .d2 .quan ul{
+	position:absolute;
+	bottom:30px;
+	left:22%;
+}
+.xm_bottom{
+	width:1226px;
+	height:26px;
+	padding:27px 0px;
+	border-bottom:1px solid #333;
+	margin-bottom:40px;
+}
+.xm_bottom a{
+	display:block;
+	float:left;
+	line-height:25px;
+	padding:0px 50px;
+	font:16px "微软雅黑";
+	color:#616177;
+    border-right:1px das #333;
+}
+.xm_bottom a .icon{
+	float:left;
+	width:25px;
+	height:25px;
+	background:url(img/banzi.png) no-repeat 50% 50%;
+	margin-right:10px;
+}
+
+.wrap{
+	width:1226px;
+	height:114px;
+}
+.wrap .wrap_left{
+	width:983px;
+	height:114px;
+	border-right:1px solid  #e0e0e0;
+} 
+.wrap .wrap_left ul li{
+	font:12px/1 "宋体";
+	color:#757575;
+	margin-bottom:16px;}
+.wrap .wrap_left ul li.d1{
+	font:14px/1 "宋体";
+	color:#424242;
+	margin-bottom:32px;
+}
+.wrap .wrap_left ul{
+	float:left;
+	margin-right:107px;
+}
+.wrap .wrap_right{
+	text-align:center;
+	float:right;
+	width:242px;
+	height:114px;
+}
+.wrap .wrap_right .p1{
+	font:18px/1 "宋体";
+	color:#ff6733;
+	margin-bottom:16px;
+}
+.wrap .wrap_right .p2{
+	font:12px/1 "宋体";
+	margin-bottom:8px;
+	color:#616161;
+}
+.wrap .wrap_right .p3{
+	font:12px/1 "宋体";
+	margin-bottom:20px;
+	color:#616161;
+}
+.wrap .wrap_right .kuang{
+	width:118px;
+	height:28px;
+	border:#ff6700 1px solid;
+	margin-left:60px;
+	text-align:center;
+	margin-top:-8px;
+	position:relative;
+	font:12px/28px "宋体";
+	color:#ff6700;
+}
+.wrap .wrap_right .kuang .icon{
+	width:12px;
+	height:11px;
+	position:absolute;
+	background:url(img/iconzi.png) no-repeat 50% 50%;
+	left:3px;
+	top:7px; 
+}
+
+
+
+</style>
+</head>
+
+<body>
+<div class="box_nav_top">
+		<ul class="nav_top clearfix" >
+				<li>
+                	<a href="javascript:;">小米网</a></a>
+                </li>
+        		<li>
+                	<a href="javascript:;">MIUI</a>
+                </li>
+
+				<li>
+                	<a href="javascript:;">米聊</a>
+                </li>                
+				<li>
+                	<a href="javascript:;">游戏</a></a>
+                </li>
+				<li>
+                	<a href="javascript:;">多看阅读</a>
+                </li>
+                <li>
+                	<a href="javascript:;">云服务</a>
+                </li>
+                <li>
+                	<a href="javascript:;">小米网移动版</a>
+                </li>
+                <li>
+                	<a href="javascript:;">问题与反馈</a>
+                </li>
+                <li class="se">
+                	<a href="javascript:;">SElect Region</a>
+                </li>
+                <li class="dl">
+                	<a class="dll" href="javascript:;">登录</a>
+                    <a href="javascript:;">注册</a>
+                </li>
+                <li class="gouwuche clearfix">
+                		<a>
+                        	<i></i>
+                            <span>购物车（0）</span>
+                        </a>
+                </li>                                
+        </ul>
+</div>
+
+<div class="box_mi clearfix">
+		<ul>    
+              
+        		<li class="tu">
+                	<a href="javascript:;"></a>
+                </li>
+                <li>
+                	<a href="javascript:;">小米手机</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">红米</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">平板</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">电视盒子</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">路由器</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">智能硬件</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">服务</a>
+
+                </li>
+                <li>
+                	<a href="javascript:;">社区</a>
+
+                </li>
+                
+        </ul>
+        <div class="box_nav_search">
+        <input type="text" />
+        <span>小米四手机 </span>
+        <a class="nav_search" href="javscript:;"></a>
+        </div>
+</div>
+
+
+
+<div class="box_friend clearfix">
+        <div class="box_friend_right fr">
+        		<div class="left"></div>
+                <div class="white"></div>
+                <ul>
+                		<li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li class="white"></li>                        
+                </ul>
+        </div>
+		<div class="box_friend_left"></div>
+        <div class="box_friend_top">
+        		<ul>
+                		<li>
+                        		<a href="javascript:;">手机 平板 电话卡</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">电视 盒子</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">路由器 智能硬件</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">移动电源 插线板</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">耳机 音箱</a>
+                                <i></i>
+                        </li><li>
+                        		<a href="javascript:;">电池 存储卡</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">保护套 后盖</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">贴膜 其他配件</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">米兔 服装</a>
+                                <i></i>
+                        </li>
+                        <li>
+                        		<a href="javascript:;">箱包 其他周边</a>
+                                <i></i>
+                        </li>
+                </ul>
+        </div>
+</div>
+<div class="box_zc clearfix">
+        <div class="box_zc_right fr">
+        		<div class="tu"></div>
+                <div class="tu"></div>
+                <div class="tu"></div>
+        </div>
+		<ul class="box_zc_left clearfix fl">
+        		<li>
+                	<a href="javascript:;">电信专场</a>
+                </li>
+                <li>
+                	<a href="javascript:;">企业团购</a>
+                </li>
+                <li>
+                	<a href="javascript:;">官方产品</a>
+                </li>
+                <li>
+                	<a href="javascript:;">小米移动</a>
+                </li>
+                <li>
+                		<a href="javascript:;">话费充值</a>
+                </li>
+                <li>
+                	<a href="javascript:;">防伪查询</a>
+                </li>
+
+                
+        </ul>
+            <div class="box_zc_leftblack"></div>
+        
+            
+</div>
+<div class="mingxiangdan clearfix">小米明星单
+		<i class="xiaomimingxingdan_tu"></i>
+</div>
+<div class="box_mingxing">
+		<ul class="clearfix">
+        	<li class="a1">
+            	<a href="javascript:;">
+                <div></div>
+                <p class="p1">小米空气净化器</p>
+                <p class="p2">双风机 净化能力高达406m^3/h</p>
+                <p class="p3">899元</p>
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                <div></div>
+                 <p class="p1">小米空气净化器</p>
+                <p class="p2">双风机 净化能力高达406m^3/h</p>
+                <p class="p3">899元</p>
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                <div></div>
+                 <p class="p1">小米空气净化器</p>
+                <p class="p2">双风机 净化能力高达406m^3/h</p>
+                <p class="p3">899元</p>
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                <div></div>
+                 <p class="p1">小米空气净化器</p>
+                <p class="p2">双风机 净化能力高达406m^3/h</p>
+                <p class="p3">899元</p>
+                </a>
+            </li>
+            <li>
+            	<a href="javascript:;">
+                <div></div>
+                 <p class="p1">小米空气净化器</p>
+                <p class="p2">双风机 净化能力高达406m^3/h</p>
+                <p class="p3">899元</p>
+                </a>
+            </li>
+        </ul>
+</div>
+<div class="box_zhineng clearfix">
+		<div class="zhineng_top">
+        		<div class="name">智能硬件</div>
+        </div>
+        <div class="zhineng_zuo"></div>
+        <ul class="zhineng_you clearfix">
+       		 <li class="d1"></li>
+       		 <li class="d1"></li>
+      		 <li class="d1"></li>
+       		 <li class="d1"></li>
+      		 <li></li>
+      		 <li></li>
+       		 <li></li>
+      		 <li></li>
+        </ul>
+</div>
+<div class="box_neirong">
+		<div class="neirong_top">
+        	<div class="name">内容</div>
+        </div>
+        <ul class="neirong_bottom clearfix">
+        		<li class="d1 d2">
+                		<a class="ts_top">
+                        	<p class="p1">图书</p>
+                            <p class="p2">古董局中局4（大结局）</p>
+                            <p class="p3">先于纸书，抢险发布，揭开全部悬</p>
+                            <p class="p4">念，马伯庸《古董局中局》系列大结局</p>
+                            <p class="p5">12元</p>
+                        </a>
+                        <div class="quan">
+                        <ul class="clearfix">
+                        		<li class="qiuyi"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                        </div>
+                </li>
+            	<li class="d2">
+                		<a class="ts_top">
+                        	<p class="p1">图书</p>
+                            <p class="p2">古董局中局4（大结局）</p>
+                            <p class="p3">先于纸书，抢险发布，揭开全部悬</p>
+                            <p class="p4">念，马伯庸《古董局中局》系列大结局</p>
+                            <p class="p5">12元</p>
+                        </a>
+                        <div class="quan">
+                        <ul class="clearfix">
+                        		<li class="qiuyi"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                        </div>
+                </li>
+            	<li class="d2"><a class="ts_top">
+                        	<p class="p1">图书</p>
+                            <p class="p2">古董局中局4（大结局）</p>
+                            <p class="p3">先于纸书，抢险发布，揭开全部悬</p>
+                            <p class="p4">念，马伯庸《古董局中局》系列大结局</p>
+                            <p class="p5">12元</p>
+                        </a>
+                        <div class="quan">
+                        <ul class="clearfix">
+                        		<li class="qiuyi"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                        </div>
+                		
+                </li>
+            	<li class="d2">
+                		<a class="ts_top">
+                        	<p class="p1">图书</p>
+                            <p class="p2">古董局中局4（大结局）</p>
+                            <p class="p3">先于纸书，抢险发布，揭开全部悬</p>
+                            <p class="p4">念，马伯庸《古董局中局》系列大结局</p>
+                            <p class="p5">12元</p>
+                        </a>
+                        <div class="quan">
+                        <ul class="clearfix">
+                        		<li class="qiuyi"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                        </ul>
+                        </div>
+                </li>
+        </ul>
+</div>
+<div class="xm_bottom clearfix">
+		<a href="javascript:;">
+        		<div class="icon"></div>
+        		1小时快修服务
+        </a>
+        <a href="javascript:;">
+        		<div class="icon"></div>
+        		1小时快修服务
+        </a>
+        <a href="javascript:;">
+        		<div class="icon"></div>
+        		1小时快修服务
+        </a>
+        <a href="javascript:;">
+        		<div class="icon"></div>
+        		1小时快修服务
+        </a>
+        <a href="javascript:;">
+        		<div class="icon"></div>
+        		1小时快修服务
+        </a>
+</div>
+
+
+<div class="wrap clearfix">
+        <div class="wrap_right">
+        		<p class="p1">400-100-5678</p>
+                <p class="p2">周一至周日 8:00-18:00</p>
+                <p class="p3">（仅收市话费）</p>
+                <div class="kuang">
+                	<div class="icon"></div>
+                    24小时在线客服
+                </div>
+        </div>
+		<div class="wrap_left clearfix">
+        		<ul>
+                		<li class="d1">帮助中心</li>
+                        <li>购物指南</li>
+                        <li>支付方式</li>
+                        <li>配送方式</li>
+                </ul>
+                <ul>
+                		<li class="d1">帮助中心</li>
+                        <li>购物指南</li>
+                        <li>支付方式</li>
+                        <li>配送方式</li>
+                </ul>
+                <ul>
+                		<li class="d1">帮助中心</li>
+                        <li>购物指南</li>
+                        <li>支付方式</li>
+                        <li>配送方式</li>
+                </ul>
+                <ul>
+                		<li class="d1">帮助中心</li>
+                        <li>购物指南</li>
+                        <li>支付方式</li>
+                        <li>配送方式</li>
+                </ul>
+                <ul>
+                		<li class="d1">帮助中心</li>
+                        <li>购物指南</li>
+                        <li>支付方式</li>
+                        <li>配送方式</li>
+                </ul>
+        </div>
+</div>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+<title>无标题文档</title>
+<script>
+	(function(win,doc){
+		function change(){
+			doc.documentElement.style.fontSize=doc.documentElement.clientWidth/320*20+'px';	
+		}	
+		change();
+		win.addEventListener('resize',change,false);
+	})(window,document);	
+</script>
+<style>
+*{ margin:0; padding:0; list-style:none; text-decoration:none}
+body,html{width:100%;}
+.top{background:#344a61;width:16rem;height:3rem;}
+.top div,.top h1{ float:left; box-sizing: border-box;}
+.top div{width:2.95rem;}
+.top .left a{ display:block; width:0.75rem; height:0.5rem;
+margin-left:1.1rem; margin-top:1.25rem; background:url(image/list.jpg);
+background-size:100%;text-indent:9999px;}
+.top .right a{ width:0.95rem; height:0.6rem;display:block;
+background:url(image/mail.jpg) no-repeat;margin-left:1rem; margin-top:1.2rem;
+text-indent:9999px; background-size:100%;}
+.top h1{ border-right:1px solid #ccc; border-left:1px solid #ccc;
+width:calc(100% - 5.9rem); height:3rem; color:#fff; font-size:0.6rem; text-align:center;line-height:3rem;}
+section{padding:0 1rem;}
+section .homepage{height:2rem;line-height:2rem; border-bottom:2px solid #ccc; color:#d8d8d8; font-size:0.4rem; margin-bottom:1rem;}
+.box .banner{height:9.3rem; width:14rem;background:url(image/banner.jpg) no-repeat; background-size:100%; padding-bottom:0.75rem;}
+h3{font-size:0.6rem; color:#242424; line-height:1.6rem}
+.well p{font-size:0.5rem; line-height:1rem;}
+.well{ padding-bottom:1rem; border-bottom:2px solid #ccc;}
+.easa{ padding:1rem 0; overflow:hidden; border-bottom:2px solid #ccc;}
+.easa .explain{ width:4rem;float:left;}
+.easa .explain img{ display:block; width:4em; height:4rem; margin-bottom:1rem;}
+#img1{ margin:0;}
+.easa .exp{ width:8.9rem; float:right;}
+.easa .exp h3,.easa .exp p{ font-size:0.5rem;}
+.some h2{ line-height:1.6rem;font-size:0.6rem;}
+.some{ overflow:hidden}
+.some p{ line-height:1rem; font-size:0.5rem}
+.some ul li{ float:left; margin-top:1rem; width:4rem;height:4rem;box-sizing:border-box;  margin-top:1rem; margin-right:1rem;box-sizing:border-box; border:1px solid #ccc;}
+.some ul li.end{ margin-right:0;}
+.some ul li a{ background:url(image/computer.jpg); width:100%; height:100%; display:block; background-size:100%; 100%; text-indent:999px;}
+
+.tes{padding-top:0.5rem; padding-bottom:1rem; position:relative; border-bottom:2px solid #ccc;}
+.tes h2{font-size:0.5rem; line-height:2rem}
+.tes p{ font-size:0.5rem; line-height:1rem;}
+.tes .bottom{ padding:1rem 0; overflow:hidden;}
+.tes .bottom div{ float:left}
+.tes .bottom .left{ width:4rem; height:4rem; background:url(image/phone1.jpg) no-repeat; background-size:100%;}
+.tes .bottom .right{ width:9rem; height:4rem; margin-left:1rem;}
+.bottom .right p{ font-size:0.5rem; line-height:1rem;}
+.bottom .right b{font-size:0.5rem; line-height:0.5rem; padding-left:1rem;}
+#ge{border-bottom:2px solid #ccc; padding-bottom:1rem;}
+#ge h4{ line-height:2.5rem; text-align:center; font-size:0.5rem;}
+#ge p{ line-height:1rem; font-size:0.5rem; text-align:center;}
+#ge ul{ margin-left:2.2rem; margin-top:1rem; overflow:hidden}
+#ge ul li{ float:left; width:2.5rem; height:2.5rem;margin-right:1rem;}
+#ge ul li a{ position:absolute; background:red; display:block; width:2.5rem; height:2.5rem; ;}
+#ge ul li .a1{background:url(image/F.jpg);background-size:100%}
+#ge ul li .a2{background:url(image/g.jpg);background-size:100%}
+#ge ul li .a3{background:url(image/bird.jpg);background-size:100%}
+#copy{ padding:1rem 0;}
+#copy p{ text-align:center; font-size:0.5rem; line-height:1rem; color:#666;}
+footer{ height:2rem; background:#000; padding:0.5rem}
+footer ul li{ width:1rem; height:1rem; border:1px solid pink; float:left; margin-right:1rem; box-sizing:border-box;}
+footer ul li.end{ margin-right:0;}
+footer ul li a{ display:block; width:1rem; height:1rem; background:#666; text-align:center; line-height:1rem}
+footer p{ color:#fff; font-size:0.5rem; text-align:center; line-height:1.5rem}
+}
+</style>
+</head>
+
+<body>
+<header class="top">
+	<div class="left"><a href="#">list</a></div>
+    <h1>HEXAGONE</h1>
+    <div class="right"><a href="#">mail</a></div>
+</header>
+<section class="box">
+	<p class="homepage">homepage</p>
+    <div class="banner"></div>
+    <div class="well">
+    	<h3>WELL,HELLO THERE!</h3>
+        <p>Happiness is not about being immortal nor having food or rights in one's hand. It’s about having each tiny .Happiness is not about being immortal nor having food or rights in one's hand.</p>
+    </div>
+    <div class="easa">
+    	<div class="explain">
+        	<img src="image/phone.jpg" >
+            <img id="img1" src="image/computer.jpg" >
+        </div>
+        <div class="exp">
+        	<h3>EASY TO USE </h3>
+            <p>About Happiness is not about being immortal y .Happiness is no y .Happiness is no not about being  </p>
+            <h3>EASY TO </h3>
+            <p>Or rights in one's h Happiness is not about being immortal a</p>
+        </div>
+    </div>
+  <div class="some">
+   		<h2>SOME OF OUR WORKS!</h3>
+        <p>Your happy passer-by all knows, my distressed there is no place hides.Your happy passer-by all knows, my distressed there is no place hides.</p>
+        <ul>
+        	<li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="end"><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li class="end"><a href="#">6</a></li>
+        </ul>
+    </div>
+	
+  <div class="tes">
+    	<h2>TESTIM</h2>
+        <p>teh out being immortal nor having food or rights in one's hand. It’s about having each tiny .Happiness is not about being im</p>
+        
+       <div class="bottom">
+       		<div class="left"></div>
+            <div class="right">
+            	<p>One is always on a strange road, watching strange scenery and listening to strange music </p>
+                <b>you will find that the</b>
+            </div>
+       </div>
+    </div>  
+<div id="ge">
+	<h4 id="get">GET SOCIAL WITH US!</h4>
+    <p>The hard part isn’t making the decision. It’s living </p>
+    <p>The hard part isn’t making the decision.</p>
+    <ul>
+    	<li><a href="#" class="a1"></a></li>
+        <li><a href="#" class="a2"></a></li>
+        <li><a href="#" class="a3"></a></li>
+    </ul>
+</div>
+<div id="copy">
+	<p>The hard part isn’t making the </p>
+    <p>The hard part isn’t making the  making </p>
+</div>  	      	
+</section>
+<footer class="foot">
+	<ul>
+    	<li><a href="#" class="a1">1</a></li>
+        <li><a href="#" class="a2">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li class="end"><a href="#">8</a></li>
+    </ul>
+	<p>The hard part isn’t making the  making</p>
+</footer>
+</body>
+</html>

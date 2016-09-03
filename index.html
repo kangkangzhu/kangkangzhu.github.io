@@ -2,374 +2,15 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<title>web_kang</title>
 <link rel="stylesheet" href="css/swiper.min.css" />
 <link rel="stylesheet" href="css/main1.css"> 
 <script src="js/swiper.min.js"></script>
 <script src="move6.js"></script>
 <script src="js/jquery.banner.js"></script>
 <script src="js/move2.js"></script>
-<script>
-window.onload=function(){	
-	var oBigBall=document.getElementById('yuanquan');	
-	var oBtn3=document.getElementById('yuan_btn');	
-	var aSmallBall=document.getElementsByClassName('smallBall1');
-		
-	var r = oBigBall.offsetWidth/2;
-	var bl=true;
-	
-	//创建多个小圆
-	var count=3;
-	
-	for(var i=0;i<aSmallBall.length;i++){
-		//var oSmallBall=document.createElement('div');
-		//oSmallBall.className='smallBall1';
-		//document.body.appendChild(oSmallBall);
-		
-		setPos3(aSmallBall[i],0);//i*(90/(count-1))	
-		aSmallBall[i].rotate=0;
-	}
-	
-	oBtn3.onclick=function(){
-		oBtn3.disabled=true;
-		if(bl){
-			//小圆去各自的角度上move.......
-			for(var i=0;i<aSmallBall.length;i++){
-				move3(aSmallBall[i],i*(360/(count)));	
-			}
-			oBtn3.value='-';
-			bl=false;
-		}else{
-			//	小圆会到了0角度
-			for(var i=0;i<aSmallBall.length;i++){
-				move3(aSmallBall[i],0);	
-			}
-			oBtn3.value='+';
-			bl=true;	
-		}
-	};
-	
-	function move3(obj,iTarget){
-		var start=obj.rotate;
-		var dis=iTarget-start;
-		var count=300/30;
-		var n=0;		
-		clearInterval(obj.timer);
-		obj.timer=setInterval(function(){
-			n++;
-			//办事
-			var a=1-n/count;
-			var cur=start+dis*(1-a*a*a);
-			
-			setPos3(obj,cur);
-			
-			obj.rotate=cur;
-			
-			if(n==count){
-				clearInterval(obj.timer);	
-				oBtn3.disabled=false;
-			}
-		},30);
-	}
-	
-	function setPos3(obj,ang){
-		var a=Math.sin(a2r(ang))*r;
-		var b=Math.cos(a2r(ang))*r;
-		
-		obj.style.left=oBigBall.offsetLeft+r+a+'px';
-		obj.style.top=oBigBall.offsetTop+r-b+'px';	
-	}
-	
-	function a2r(n){
-		return n*Math.PI/180	
-	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-  var swiper = new Swiper('.swiper-container',{
-		spaceBetween: 20,
-		nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-		pagination: '.swiper-pagination',  //生成小圆点
-  		paginationClickable: true, //允许圆点点击
-		loop:true,
-		mousewheelControl: true,
-		keyboardControl: true,
-		effect: 'cube',
-		direction: 'vertical'
-	});
-	
-var oUl=document.getElementById('ul1');
-	var aLi=oUl.children;
-	var oBlock=document.getElementById('bl');
-	var nowLeft=0;//记录一个激活位置
-	var l=0;//记录blockLI	当前位置
-	
-	for(var i=0;i<aLi.length-1;i++){
-		aLi[i].onmouseover=function(){
-			move(oBlock,this.offsetLeft);	
-		};	
-		aLi[i].onmouseout=function(){
-			move(oBlock,nowLeft);	
-		};	
-		aLi[i].onclick=function(){
-			clearInterval(oBlock.timer);//点击后不要弹性
-			oBlock.style.left=this.offsetLeft+'px';//点击后立马到位
-			l=this.offsetLeft;//更新当前位置
-			nowLeft=this.offsetLeft;//更新激活位置
-		};
-	}
-	
-	function move(obj,iTarget){
-		var speed=0;
-		clearInterval(obj.timer);
-		obj.timer=setInterval(function(){
-			speed+=(iTarget-obj.offsetLeft)/6;//加速度
-			speed*=0.7;
-			l= l + speed	//当前位置每次用l变量存起来
-			obj.style.left=Math.round(l)+'px';
-			
-			
-			if(iTarget==obj.offsetLeft && Math.abs(speed)<1){
-				clearInterval(obj.timer);	
-			}
-			console.log(iTarget,obj.offsetLeft,speed);	
-		},30);
-	}	
-	
-	
-//布局转换
-var Ofadein_ol=document.getElementById('fadein_ol');
-var aContent1=Ofadein_ol.children;
-var aLi=document.getElementById('buju').children;
-	var zIndex=1;
-	//1.布局转换
-	var aPos=[];
-	for(var i=0;i<aLi.length;i++){
-		aPos.push({left:aLi[i].offsetLeft,top:aLi[i].offsetTop});
-		aLi[i].style.left=aPos[i].left+'px';
-		aLi[i].style.top=aLi[i].offsetTop+'px';
-	}
-	for(var i=0;i<aLi.length;i++){
-		aLi[i].style.position='absolute';
-		aLi[i].style.margin=0;
-		aLi[i].index=i;
-	}
-	//2.加事件,放大li
-	for(var i=0;i<aLi.length;i++){
-		aLi[i].onmouseover=function(){
-			this.style.zIndex=zIndex++;	
-			startMove(this,{width:150,height:150,lineHeight:150,marginLeft:-(150-120)/2,marginTop:-(150-120)/2});	
-		};	
-		aLi[i].onmouseout=function(){
-			startMove(this,{width:120,height:120,lineHeight:120,marginLeft:0,marginTop:0});
-			this.style.zIndex=0;				
-		};
-		
-	
-			
-}
-	
-function moveOpacity(obj,attr,iTarget,time){
-	var start=parseFloat(getStyle(obj,attr));
-	var dis=iTarget-start;
-	var count=time/30;
-	var n=0;
-	clearInterval(obj.timer);
-	obj.timer=setInterval(function(){
-		n++;
-		var cur=start+n*dis/count;
-		if(attr=='opacity'){
-			obj.style.opacity=cur;
-			obj.style.filter='alpha(opacity:'+cur*100+')';
-		}else{
-			obj.style[attr]=cur+'px';
-		}
-		if(n==count){
-			clearInterval(obj.timer);
-		}
-	},30);
-}
-function getStyle(obj,attr){
-	return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
-}
-
-
-//var aLi=document.getElementById('buju').children;
-//alert(aContent.length)
-var zIndex=1;
-
-for(var i=0;i<aLi.length;i++){
-		(function(index){
-			aLi[i].onclick=function(){
-				for(var i=0;i<aLi.length;i++){
-					moveOpacity(aContent1[i],'opacity',0,1000)	
-				}
-				moveOpacity(aContent1[index],'opacity',1,1000);	
-			}
-		})(i);
-	}
-
-(function(){
-var oUl = document.getElementById("application");
-	var aLi = oUl.children;
-	var len = aLi.length;
-	var zIndex = 1;
-	
-	//布局转换
-	var aPos = [];
-	for(var i = 0; i < len; i++){
-		aPos[i] = {left:aLi[i].offsetLeft,top:aLi[i].offsetTop};
-		aLi[i].style.left = aPos[i].left + "px";
-		aLi[i].style.top = aPos[i].top + "px";		
-	}
-	
-	for(var i = 0; i < len; i++){
-		aLi[i].style.position = "absolute";
-		aLi[i].style.margin = "0";
-		aLi[i].index = i;
-		drag(aLi[i]);	
-	}
-	function drag(obj){
-		obj.onmousedown = function(ev){
-			var oEvent = ev || event;
-			var disX = oEvent.clientX - obj.offsetLeft;
-			var disY = oEvent.clientY - obj.offsetTop;
-			
-			clearInterval(obj.timer);
-			obj.style.zIndex = zIndex++;
-			
-			document.onmousemove = function(ev){
-				var oEvent = ev || event;
-				obj.style.left = oEvent.clientX - disX + "px";
-				obj.style.top  = oEvent.clientY - disY + "px";
-			 	
-				//交换位置
-				var oNear = findNearest(obj);
-				if(oNear && oNear!=obj){
-					/*
-						n = obj.index
-						m = oNear.index
-						
-						n < m: [n+1,m] zIndex--
-						n > m: [m,n-1] zIndex++
-					*/
-var n = obj.index;
-var m = oNear.index;
-if(n < m){//--
-	for(var i = 0; i < len; i++){
-		if(aLi[i].index >= n+1 && aLi[i].index <= m){
-			aLi[i].index--;
-			move2(aLi[i],aPos[aLi[i].index]);
-		}
-	}
-} else if(n > m){//++
-	for(var i = 0; i < len; i++){
-		if(aLi[i].index >= m && aLi[i].index <= n-1){
-			aLi[i].index++;
-			move2(aLi[i],aPos[aLi[i].index]);
-		}
-	}
-}				
-//n --> m
-obj.index = m;				
-					
-				}
-				
-				
-			};
-			document.onmouseup = function(){
-				document.onmousemove = null;
-				document.onmouseup = null;
-				obj.releaseCapture && obj.releaseCapture();
-				
-				move2(obj,aPos[obj.index]);
-					for(var i=0;i<aLi.length;i++){
-					aLi[i].style.zIndex =0;
-					}
-				
-			};	
-			obj.setCapture && obj.setCapture();
-			return false;
-		};
-	}
-
-	//算距离
-	function getDis(obj1,obj2){
-		var a = obj1.offsetLeft - aPos[obj2.index].left;
-		var b = obj1.offsetTop - aPos[obj2.index].top;
-		
-		return Math.sqrt(a*a + b*b);	
-	}
-	
-	//找最小值
-	//1 碰撞  2 算计距离 3 找最小值  4返回
-	function findNearest(obj){
-		var iMin = 9999999;
-		var iMinIndex = -1;
-		for(var i = 0; i < len; i++){
-			//if(obj == aLi[i]) continue;
-			//1 碰撞
-			if(collTest(obj,aLi[i])){
-				// 2 算计距离 
-				var dis = getDis(obj,aLi[i]);
-				// 3 找最小值
-				if(iMin > dis){
-					iMin = dis;
-					iMinIndex = i;
-				}				
-			}
-		}
-		//4返回
-		if(iMinIndex == -1){
-			return null;
-		}
-		return aLi[iMinIndex];
-	}
-	
-	function collTest(obj1,obj2){
-		var l1 = obj1.offsetLeft;
-		var t1 = obj1.offsetTop;
-		var r1 = l1 + obj1.offsetWidth;
-		var b1 = t1 + obj1.offsetHeight;
-		
-		var l2 = aPos[obj2.index].left;
-		var t2 = aPos[obj2.index].top;
-		var r2 = l2 + obj2.offsetWidth;
-		var b2 = t2 + obj2.offsetHeight;
-		
-		if(r1 < l2 || b1 < t2 || l1 > r2 || t1 > b2){
-			return false;
-		} else {
-			return true;	
-		}	
-	}	
-})()
-};
-</script>
+<script src="js/js.js"></script>
 <style>
-#shouye{width:100%; height:100%; background: url(images/998288.jpg);position:relative; overflow:hidden; background-size:100%;}
-#shouye1{ width:900px; height:700px;margin:0px auto; background-size:900px 700px;}
-#shouye1 .icon{ width:130px; height:130px; border-radius:50%;position:absolute; left:50%; top:185px; 
-margin-left:-65px; color:#fff; background:url(images/u=3884929303,1726512544&fm=21&gp=0.jpg) no-repeat; background-size:150%;
- background-position:-30px 0px;}
-#shouye1  .p1{line-height:16px; font-size:20px; font-weight: bold; color:#fff; position:absolute; top:350px; left:50%;
- margin-left:-40px;}
- #shouye1  .p2{line-height:16px; font-size:20px; font-weight: bold; color:#fff; position:absolute; top:410px; left:50%;
- margin-left:-26px;}
- 
-#shouye1 h3{font-size:40px;position:absolute; margin:0; padding:0; line-height:40px; left:50%; margin-left:-80px; margin-top:20px; color:#fff;}
-#shouye1 .sh{margin:0; position:absolute; font-size:20px; margin:0; padding:0; line-height:20px;  left:50%; margin-left:-40px;
- margin-top:70px; }
-	
-
 html{height:100%;}
 body{ height:100%}
 	*{ padding:0; margin:0; list-style:none;}
@@ -386,9 +27,11 @@ body{ height:100%}
 	#nav{ width:100%;  height:100px;position:fixed; top:0; z-index:100; opacity:1; line-height:100px;border-radius:10px; background: url(images/bj5.jpg); color:#fff}
 	#nav ul{width:100%; margin:0 auto; position:absolute;top:10px; left:600px; top:25px; }
 	#nav ul li{width:100px;height:50px; border:#666 solid 0px; float:left; text-align:center; line-height:50px; z-index:1000;}
-	
+	#nav ul li  a{ display:block; color:#fff; font-weight:bold;} 
 	#nav ul li.block{ background:#09C; position:absolute;left:0;top:0; z-index:-1;
 	border-radius:10px;}	
+	
+	
 	#logo{ width:130px; height:80px;margin-left:120px; border-radius:20px; overflow:hidden;}
 	#logo a img{width:130px; height:80px;}
 #skill{width:100%; height:100%;margin:0 auto; background-size:100%; position:relative; background: url(images/upload/pic_4.jpg); background-size:100%;}
@@ -399,105 +42,9 @@ body{ height:100%}
 #buju li {width:120px; height:120px; background:#CCC; border:1px solid black; float:left; margin:20px; font-size:30px; text-align:center; line-height:120px;}
 
 #fadein{ width:700px; height:180px;position:absolute; bottom:60px; left:50%;
-margin-left:-350px;}	
+margin-left:-440px;}
 #fadein ol li{position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; background:url(exp_list_bg1.jpg); background-size:100%;}
-#fadein ol li p{margin:0; padding:0; line-height:1.5em; text-align:left; margin-left:20px;}
-
-
-
-.experience{height:100%; background-size:100%; margin:0 auto; background: url(images/upload/pic_2.jpg); background-size:100%;}
-.experience h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
-.experience p{ margin:0; pading:0; line-height:20px; color:black; padding-bottom:30px;}
-
-
-.flexslider {
-	margin: 0px auto 20px;
-	position: relative;
-	width: 1000px;
-	height: 400px;
-	overflow: hidden;
-	zoom: 1;
-}
-.flexslider .slides li {
-	width: 100%;
-	height: 100%;
-}
-.flex-direction-nav a {
-	width: 70px;
-	height: 70px;
-	line-height: 99em;
-	overflow: hidden;
-	margin: -35px 0 0;
-	display: block;
-	background: url(images/ad_ctr.png) no-repeat;
-	position: absolute;
-	top: 50%;
-	z-index: 10;
-	cursor: pointer;
-	opacity: 0;
-	filter: alpha(opacity=0);
-	-webkit-transition: all .3s ease;
-	border-radius: 35px;
-}
-
-.flex-direction-nav .flex-next {
-	background-position: 0 -70px;
-	right: 0;
-}
-.flex-direction-nav .flex-prev {
-	left: 0;
-}
-.flexslider:hover .flex-next {
-	opacity: 0.8;
-	filter: alpha(opacity=25);
-}
-
-.flexslider:hover .flex-prev {
-	opacity: 0.8;
-	filter: alpha(opacity=25);
-}
-
-.flexslider:hover .flex-next:hover,
-.flexslider:hover .flex-prev:hover {
-	opacity: 1;
-	filter: alpha(opacity=50);
-}
-
-.flex-control-nav {
-	width: 100%;
-	position: absolute;
-	bottom: 10px;
-	text-align: center;
-}
-
-.flex-control-nav li {
-	margin: 0 2px;
-	display: inline-block;
-	zoom: 1;
-	*display: inline;
-}
-
-.flex-control-paging li a {
-	background: url(images/dot.png) no-repeat 0 -16px;
-	display: block;
-	height: 16px;
-	overflow: hidden;
-	text-indent: -99em;
-	width: 16px;
-	cursor: pointer;
-}
-
-.flex-control-paging li a.flex-active,
-.flex-control-paging li.active a {
-	background-position: 0 0;
-}
-
-.flexslider .slides a img {
-	width: 100%;
-	height: 482px;
-	display: block;
-}
-
+#fadein ol li p{margin:0; padding:0; line-height:1.5em; text-align:left; margin-left:20px; margin-top:20px;}
 
 .app{height:100%; background-size:100%; margin:0 auto;background: url(images/423921.jpg); background-size:100%;}
 .app h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
@@ -513,32 +60,6 @@ margin-left:-350px;}
 .resume h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
 .resume_name{width:500px;margin-left:260px; margin-top:40px;}
 .resume_name p{ font-size:24px; line-height:26px; text-align:left;}
-
-
-
-@keyframes run{
-		from{transform:rotate(0deg);}
-		to{transform:rotate(360deg);}
-	}
-@keyframes revers{
-		from{transform:rotate(360deg);}
-		to{transform:rotate(0deg);}
-	}
-.web_circle{ width:1000px; height:300px;position:relative; top:49px; z-index:10;}
-.green_circle{ width:200px; height:200px; border-radius:50%;position:absolute; left:50%; top:50%; margin-top:-100px; margin-left:-100px;background-size:100%;
-}
-.yellow_circle{ width:170px; height:170px;border-radius:50%;position:absolute;
-left:50%; top:50%; margin-top:-85px; margin-left:-85px;background-size:100%;}
-.blue_circle{ width:150px; height:150px;  border-radius:50%;position:absolute; left:50%; top:50%; margin-top:-75px; margin-left:-75px;background-size:100%;}
-.green_circle img{ width:200px; height:200px; animation:run 2s linear infinite;}
-.yellow_circle img{ width:170px; height:170px;animation:revers 2s linear infinite;}
-.blue_circle img{ width:150px; height:150px;animation:run 2s linear infinite;}
-
-
-#yuanquan{width:300px;height:300px;position:absolute;left:50%; top:50%; margin-left:-150px; margin-top:50px;
-border:#00F 1px solid; border-radius:50%;}
-.smallBall1{width:100px;height:40px;border-radius:25px; position:absolute;left:0;top:0;margin-left:-50px;margin-top:-20px; color:black}
-#yuan_btn{position:absolute;font-size:30px; top:80px; right:470px;}
 .icon_blog div{ width:50px; height:40px; background:url(icon/blog.png) no-repeat; background-size:100%; position:absolute; z-index:10; background-position:0px -10px;}
 .icon_weibo div{ width:50px; height:40px; background:url(icon/weibo.png) no-repeat; background-size:100%; background-position:0 -7px;}
 .icon_github div{ width:50px; height:40px; background:url(icon/github.png) no-repeat; background-size:100%; background-position:0 -7px;}
@@ -548,190 +69,140 @@ border:#00F 1px solid; border-radius:50%;}
 .icon_blog a{ position:absolute; top:16px; font-size:14px; margin-right:3px;}
 .icon_weibo a{position:absolute; top:16px;font-size:14px; margin-right:13px;}
 .icon_github a{position:absolute;top:16px;font-size:14px; right:5px;}
+
+
+<!-->我的作品<-->
+#works{width:100%;}
+#works h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
+
+#works .works_sta{width:200px; height:350px; float:left;position:relative; background:#99F; margin:60px 0 0 80px;}
+#works .works_sta h2{ width:200px; height:50px;background:#999; border-radius:10px 10px 0 0; text-align: center;
+line-height:50px; position:absolute; top:-10px;}
+.works_menu ul{ overflow:hidden;position:absolute; top:40px; width:100%;}
+.works_menu ul li a{width:100%; line-height:40px; text-align:left; height:40px; border-bottom:3px solid #ccc; display:block; color:black;}
+.works_menu ul li a:hover{border-bottom:3px solid #fff; color:red;} 
+.works_menu ul li a.click{ border-bottom:none;color:blue;}
+
+#works .works_act{ width:900px; height:360px; background:#ccc; float:left; margin:50px 0 0 40px;overflow:hiden;}
+#works .works_act h4{line-height:60px; text-align:center; font-size:30px;}
+.works_act ul{ margin-left:20px; width: 800px;}
+.works_act ul li a{ display:block; float:left; width:120px; padding-top:100px; line-height:20px; text-align:center; margin:0 20px 20px 0; background:pink;}
+
+.works_act ul li a.l0{background:url(imagejs/chrome.png) no-repeat; background-size:100%;}
+.works_act ul li a.l1{background:url(imagejs/clock.png) no-repeat; background-size:100%;}
+.works_act ul li a.l2{background:url(imagejs/ball.png) no-repeat; background-size:100%;}
+.works_act ul li a.l3{background:url(imagejs/fanye.png) no-repeat; background-size:100%;}
+.works_act ul li a.l4{background:url(imagejs/wufeng.png) no-repeat; background-size:100%;}
+.works_act ul li a.l5{background:url(imagejs/bom.png) no-repeat; background-size:100%;}
+.works_act ul li a.l6{background:url(imagejs/xuanzhuan.png) no-repeat; background-size:100%;}
+.works_act ul li a.l7{background:url(imagejs/danru.png) no-repeat; background-size:100%;}
+.works_act ul li a.l8{background:url(imagejs/qin.png) no-repeat; background-size:100%;}
+.works_act ul li a.l9{background:url(imagejs/yuanhuan.png) no-repeat; background-size:100%;}
+.works_act ul li a{ text-align:center; color:#000; font-size:20px; line-height:24px}
 </style>
 </head>
 <body>
 	<div class="swiper-container">
   	<div id="nav">
         <div id="logo">
-        	<a href="https://www.baidu.com" target="blank">       	
+        	<a href="person/index.html" target="_blank">       	
         	<img src="u=279111546,3845078927&fm=21&gp=0.jpg">
             </a> 
         </div>
     	<ul id="ul1">
-        	<li>首页</li>
-            <li>关于我</li>
-            <li>积淀</li>
-            <li>学无止境</li>
-            <li>留言版</li>
+        	<li><a href="#">首页</a></li>
+            <li><a href="#">作品</a></li>
+            <li><a href="#">联系</a></li>
 			<li class="block" id="bl"></li>
         </ul>
     </div>
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-            	<div id="shouye">
-                	
-                	<div style="width:100%; height:400px;position:absolute;" class="web_circle";>                    		
-                            <div class="smallBall1 icon_blog">
-                            	<div class="blog"></div>
-                                <a href="#">博客</a>
-                            </div>
-                            <div class="smallBall1 icon_weibo">
-                            	<div class="weibo"></div>
-                            	<a href="#">微博</a>
-                            </div>
-                            <div class="smallBall1 icon_github">
-                            	<div class="github"></div>
-                                <a href="#">GitHub</a>
-                            </div>
-                            <div style="position:relative; background:pink;">
-                           		 <div id="yuanquan"></div>
-                            	<input type="button" id="yuan_btn" value="+">
-                       		</div>
-                                                
-                   <!--     
-                    <div class="green_circle">
-    					<img src="icon/green_cycle.svg">
-    						<div class="yellow_circle">
-        						<img src="icon/yellow_cycle.svg">
-        						<div class="blue_circle">
-            						<img src="icon/blue_cycle.svg">
-            					</div>
-        					</div>
-    				</div>	-->
-                    </div>
-                    
-                	<div id="shouye1">
-                     <h3>我的首页</h3>
-                     <p class="sh">-shouye-</p>
-                    	 <div class="icon"></div>
-                         <p class="p1"></p>
-                         <p class="p2">小康</p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
+        <div class="swiper-slide">
             		<div id="skill">
-                        <h3>专业技能</h3>
+                        <h3>我的技能</h3>
                        	<p>-skill-</p>
                         <ol id="buju">
                             <li>HTML</li>
                             <li>CSS</li>
-                            <li>jquery</li>
-                            <li>Angular</li>
-                            <li>php</li>
-                            <li>seajs</li>
+                            <li>JS</li>
+                            <li>Jquery</li>
+                            <li>Ajax</li>
                         </ol>
                         <div id="fadein">
                         	<ol id="fadein_ol">
+		                      <li>
+                                	<p>1.深刻理解Web标准</p>
+                                    <p>2.熟练运用html标签</p>
+                                    <p>3.熟悉html5,如localstorage新特性</p>                               
+                                </li>
                             	<li style=" opacity:1;">
-                                	<p>熟练运用css及css3新属性</p>
-                                    <p>注重浏览器兼容性，熟悉常见的css hack（兼容至IE8）</p>
-                                    <p>掌握bootstrap框架及源码的实现</p>
-                                    <p>掌握css预编译器Less及Sass</p>                           
+                                	<p>1.熟练运用css</p>
+                                    <p>2.注重浏览器兼容</p>
+                                    <p>3.熟悉css3新属性</p>                           
                                 </li>
                                 <li>
-                                	<p>深刻理解Web标准</p>
-                                    <p>熟练运用html标签</p>
-                                    <p>熟悉xml及xhtml标记语言</p>
-                                    <p>掌握html5如SVG，localstorage新特性</p>                               
+                                    <p>1.掌握原生JS的编程</p>
+                                    <p>2.注重JavaScript性能优化</p>
+                                    <p>3.能在页面添加JS效果</p>
                                 </li>
                                 <li>
-                                	<p>	掌握jQuery</p>
-                                    <p>掌握原生JS的编程</p>
-                                    <p>注重JavaScript性能优化</p>
-                                    <p>正在学习ES6</p>
+                                    <p>1.熟悉Jquery框架</p>
+                                    <p>2.熟悉模块组件化</p>
+                                    <p>3.能用Jquery做出部分效果</p>
                                 </li>
-                                <li>
-                                	<p>AngularJs</p>
-                                    <p>熟练运用angularJS处理移动端的模块开发</p>
-                                    <p>模块组件化</p>
-                                    <p>熟练的指令编写</p>
+                                 <li>
+                                    <p>1.熟悉Ajax原理</p>
+                                    <p>2.能拿公开api进行调试</p>
+                                    <p>3.有待提高,正在学习</p>
                                 </li>
                                 <li>3</li>
                                 <li>4</li>
                             </ol>
                         </div>	
                     </div>
-            </div>
-            <div class="swiper-slide">
-            	<div class="experience">
-                	<h3>我的经历</h3>
-                    <p>-experience-</p>
-                    
-                
-                   	<div id="banner_tabs" class="flexslider">
-                        <ul class="slides">
-                            <li>
-                                <a title="" target="_blank" href="#">
-                                    <img width="1000" height="400" alt="" style="background: url(images/banner1.jpg) no-repeat center;" src="images/alpha.png">
-                                </a>
-                            </li>
-                            <li>
-                                <a title="" href="#">
-                                    <img width="1000" height="400" alt="" style="background: url(images/banner2.jpg) no-repeat center;" src="images/alpha.png">
-                                </a>
-                            </li>
-                            <li>
-                                <a title="" href="#">
-                                    <img width="1000" height="400" alt="" style="background: url(images/banner3.jpg) no-repeat center;" src="images/alpha.png">
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="flex-direction-nav">
-                            <li><a class="flex-prev" href="javascript:;">Previous</a></li>
-                            <li><a class="flex-next" href="javascript:;">Next</a></li>
-                        </ul>
-                        <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
-                            <li><a>1</a></li>
-                            <li><a>2</a></li>
-                            <li><a>2</a></li>
-                        </ol>
+            </div>         
+        
+ 
+            <div class="swiper-slide" name="tab2">
+                <div id="works">
+                     <h3>我的作品</h3>
+                     <p class="">-works-</p>
+                     <p class="p1"></p>
+                <div class="works_sta">
+					<div class="works_menu">
+                    	<h2>静态网页</h2>
+                        	<ul>
+                            	<li><a href="静态页面/我的移动/index.html" target="_blank">1.中国移动静态页</a></li>
+                                <li><a href="静态页面/小米/index.html" target="_blank">2.小米首页</a></li>    
+                                <li><a href="静态页面/美丽说静态页面/index.html" target="_blank">3.美丽说首页</a></li>    
+                                <li><a href="静态页面/电商网站/index.html" target="_blank">4.外国电商网站</a></li>    
+                                <li><a href="静态页面/rem布局/HE.html" target="_blank">5.移动端rem布局</a></li>    
+                                <li><a href="javascript:;" target="_blank">6.</a></li> 
+                                <li><a href="javascript:;" class="click" target="_blank">点击查看>></a></li>                         
+                            </ul>
                     </div>
-                    <script src="js/jquery-1.10.2.min.js"></script>
-                    <script src="js/slider.js"></script>
-                    <script type="text/javascript">
-                    $(function() {
-                        var bannerSlider = new Slider($('#banner_tabs'), {
-                            time: 5000,
-                            delay: 400,
-                            event: 'hover',
-                            auto: true,
-                            mode: 'fade',
-                            controller: $('#bannerCtrl'),
-                            activeControllerCls: 'active'
-                        });
-                        $('#banner_tabs .flex-prev').click(function() {
-                            bannerSlider.prev()
-                        });
-                        $('#banner_tabs .flex-next').click(function() {
-                            bannerSlider.next()
-                        });
-                    })
-                    </script>
                 </div>
                 
-                               
-            </div>  
-            <div class="swiper-slide" style=" background:url(er.png) no-repeat;">
-            	<div class="app">
-                	<h3>我的小应用</h3>
-                    <p>-application-</p>                    
-                    <div class="application">
-                        <ul id="application">
-                            <li><img src="images/chromeDragimgs_photowall/01.jpg" alt="01"></li>
-                            <li><img src="images/chromeDragimgs_photowall/02.jpg" alt="02"></li>
-                            <li><img src="images/chromeDragimgs_photowall/03.jpg" alt="03"></li>
-                            <li><img src="images/chromeDragimgs_photowall/04.jpg" alt="04"></li>
-                            <li><img src="images/chromeDragimgs_photowall/06.jpg" alt="08"></li>
-                            <li><img src="images/chromeDragimgs_photowall/05.jpg" alt="05"></li>
-                            <li><img src="images/chromeDragimgs_photowall/07.jpg" alt="08"></li>
-                            <li><img src="images/chromeDragimgs_photowall/08.jpg" alt="05"></li>
-                        </ul>
-					</div>                                      
+                <div class="works_act">
+                	<h4>JS小作品</h4>
+                    <ul>
+                    	<li><a href="js效果图/chromeDrag.html" class="l0" target="_blank">Chrome商店</a></li>
+                    	<li><a href="js效果图/钟表5.html"class="l1" target="_blank">钟表</a></li>
+                        <li><a href="js效果图/basketballDap.html"class="l2" target="_blank">弹跳的小球</a></li>
+                         <li><a href="js效果图/3d翻页效果10.html" class="l3" target="_blank">3D翻页</a></li>
+                         <li><a href="js效果图/无缝滚动7.html" class="l4" target="_blank">无缝滚动</a></li>
+                        <li><a href="js效果图/3D爆炸效果8.html" class="l5" target="_blank">爆炸翻页</a></li>
+                        <li><a href="js效果图/3D颗粒翻转6.html"class="l6" target="_blank">颗粒翻页</a></li>
+                        <li><a href="js效果图/2-3.淡入淡出的幻灯片/zns_demo.html"class="l7" target="_blank">淡入轮播图</a></li>
+                        <li><a href="js效果图/accordionEffect.html"class="l8" target="_blank">手风琴效果</a></li>
+                        <li><a  href="js效果图/3D图片环6.html" class="l9" target="_blank">3D圆环</a></li>
+                        
+                    </ul>
                 </div>
-            </div>
-            <div class="swiper-slide" style=" width:100%; height:100%;">
+                </div>
+           	</div>
+              
+            <div class="swiper-slide" style=" width:100%; height:100%;" name="tab3">
             <div style="" class="resume">
             	<h3>关于</h3>
                 <p>-resume-</p>
@@ -747,35 +218,20 @@ border:#00F 1px solid; border-radius:50%;}
             <h1 class="foot_title">Contact With Me</h1>
             <div class="foot_info_main">
                 <ul>
-                    <li class="github_items">
-                        <a href="javascript:;" target="_blank">GitHub</a>
-                    </li>
-                    <li class="google_items">
-                        <a href="javascript:;" target="_blank">Google+</a>
-                    
-                    </li>
-                    <li class="twitter_items">
-                        <a href="javascript:;" target="_blank">Twitter</a>
-                    
-                    </li>
-                    <li class="facebook_items">
-                        <a href="javascript:;" target="_blank">FaceBook</a>
-                    
-                    </li>
                     <li class="weibo_items">
-                        <a href="javascript:;" target="_blank">微博</a>
+                        <a href="http://weibo.com/u/5156424962/home?topnav=1&wvr=6" target="_blank">微博</a>
                     
                     </li>
                     <li class="zhihu_items">
-                        <a href="javascript:;" target="_blank">知乎</a>
+                        <a href="https://www.zhihu.com/#signin" target="_blank">知乎</a>
                     
                      </li>
                      <li class="blog_items">
-                        <a href="javascript:;" target="_blank">博客</a>
+                        <a href="http://my.csdn.net/" target="_blank">博客</a>
                     
                      </li>
                      <li class="email_items">
-                        <a href="mailto:min@coolecho.net" target="_blank">邮箱</a>
+                     <a href="mailto:18260071707@163.com" target="_blank">邮箱</a>
                     </li>
                     <div class="clear"></div>
                 </ul>
@@ -792,10 +248,10 @@ border:#00F 1px solid; border-radius:50%;}
                 </div>
             </div>
             <div class="foot_power">
-                <h3>©2016 Pwoerd 
-                    <a href="javascript:;" title="Night" target="_blank"> Night's</a>
-                    <a href="javascript:;" title="IceEnd">111</a>
-                    <a href="javascript:;" title="beian" target="_blank">1111</a>
+                <h3>©2016 
+                    <a href="javascript:;" title="Night" target="_blank"> xiaokang</a>
+                    <a href="javascript:;" title="IceEnd"></a>
+                    <a href="javascript:;" title="beian" target="_blank"></a>
                 </h3>
             </div>
         </foot>

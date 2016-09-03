@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+*{margin:0; padding:0; list-style:none;}
+#box{width:600px; height:150px; margin:100px auto; position:relative; border:1px solid red; overflow:hidden;}
+ul{width:600px; position:absolute; top:0; left:0;}
+ul li{float:left; width:150px; height:150px;}
+ul li img{width:100%;}
+#box a{position:absolute; top:0; width:50%; height:100%; background:#ccc; opacity:0; filter:alpha(opacity:0);}
+#prev{left:0; }
+#next{right:0; }
+</style>
+<script>
+window.onload=function(){
+	var oBox = document.getElementById('box');
+	var oUl = oBox.children[0];
+	var aLi = oUl.children;
+	var oPrev = document.getElementById('prev');
+	var oNext = document.getElementById('next');
+	oUl.innerHTML+=oUl.innerHTML;
+	oUl.style.width = aLi.length*aLi[0].offsetWidth+'px';
+	var W = oUl.offsetWidth/2;
+	var left = 0;
+	var timer = null;
+	oPrev.onmouseover=function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			left-=10;
+			if(left<0){
+				oUl.style.left = left%W+'px';
+			}else{
+				oUl.style.left = (left%W-W)%W+'px';
+			}
+		},30);
+	};
+	oNext.onmouseover=function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			left+=10;
+			if(left<0){
+				oUl.style.left = left%W+'px';
+			}else{
+				oUl.style.left = (left%W-W)%W+'px';
+			}
+		},30);
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<ul>
+		<li><img src="pic/1.jpg" /></li>
+		<li><img src="pic/2.jpg" /></li>
+		<li><img src="pic/3.jpg" /></li>
+		<li><img src="pic/4.jpg" /></li>
+	</ul>
+	<a href="javascript:;" id="prev"></a>
+	<a href="javascript:;" id="next"></a>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

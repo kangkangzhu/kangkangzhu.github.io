@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,label,span{margin:0;padding:0;outline:none;}
+body{font:12px/22px "Microsoft Yahei",Tahoma,Verdana,Arial;color:#333;background-color:#FFF;}
+address,cite,code,dfn,em,var{font-style:normal;font-weight:normal;}
+b,strong{font-weight:bold;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-size:100%;}
+ul,ol,li{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+th,td,caption{font-weight:normal;text-align:left;}
+th,td{padding:3px;}
+em,i{font-style:normal;}
+img{border:0;vertical-align:top;}
+input,textarea,select{vertical-align:middle;}
+hr{border:0 none;border-top:1px solid #ddd;}
+a{text-decoration:none;color:#1f5fa8;}
+input{border:none;}
+/**publicClass**/
+.pl_10{padding-left:10px;}
+/*float style*/
+.fl{float:left;}
+.fr{float:right;}
+.right{position:absolute;right:0;}
+.top_0{top:0;}
+img{ border:0 none; vertical-align:top;}
+
+
+#header{height:auto;margin:0 auto;width:100%;}
+#header .top{background-color:#F2F2F2;height:21px;padding-top:9px;width:100%;border-bottom:1px solid #E1E1E1;}
+#header .top .nav_top{color:#8C8C8C;height:20px;margin:0 auto;width:1190px;font:12px/14px "Microsoft Simsun";position:relative;}
+.wap_a{text-decoration:none;color:#008FD5;font-family:Arial;}
+#header .a_icon{width:72px;height:12px;background:url("images/top_ico.png") left 0 no-repeat;float:left;margin-right:15px;display:inline;padding-left:18px;line-height:12px;color:#8C8C8C;*margin-top:-15px;}
+#header .a_02{background-position:0 -15px;width:60px;}
+#header .a_03{background-position:0 -30px;}
+#header .a_04{background-position:0 -44px;height:14px;width:50px;}
+#header .a_05{background-position:0 -60px;margin-right:0;}
+#header .top  i{background:url("images/jiant.png") no-repeat;height:3px;width:6px;float:left;position:relative;margin:-6px 0 0 51px;}
+
+
+.nav_top .my_mall{width:105px;height:auto;padding-bottom:5px;background:#FFF;border:1px solid #E1E1E1;position:absolute;right:385px;top:-6px;display:none;z-index:3;}
+.nav_top .my_mall span{width:72px;height:12px;background:url("/images/top_ico.png") left 0 no-repeat;float:right;margin-top:5px;display:inline;padding-left:18px;line-height:12px;color:#008FD5;}
+.nav_top .my_mall img{float: right; margin: 4px 15px 0 0;*margin: -8px 15px 0 0;}
+.nav_top .my_mall a{color:#8C8C8C;text-decoration:-moz-anchor-decoration;}
+.my_mall .my_mall_nav{width:105px;height:auto;margin-top:26px;}
+.nav_top .my_mall a:hover{color:#008FD5;}
+.nav_top .my_mall p{color:#008FD5;padding-left:20px;margin:5px 0;line-height:20px;}
+
+#header .layout{ height:94px; margin:0 auto; width:1190px; overflow:hidden;}
+#header .layout .logo{ margin:22px 0 0 0; float:left;}
+
+#header .search{ width:486px; height:55px; float:left; margin:30px 0 0 30px; overflow:hidden;}
+#header .search img{float:left; background:red;}
+#header .search .input{width:355px;height:132px;background:url("images/search_02.png") no-repeat;border:none;float:left;line-height:32px; float:leftbackground:green; display:block;}
+#header .search .button{background:url("images/search_03.png") no-repeat;width:100px;height:32px;display:block;float:left;}
+
+#header .rmss{clear:both;width:486px;height:auto;font:12px/21px "Simsun";color:#999;}
+#header .rmss a{color:#999;}
+#header .rmss a:hover{color:#008FD5;text-decoration:-moz-anchor-decoration;}
+
+.menuHead .menu{width:100%;height:30px;border-bottom:3px solid #008FD5;}
+.menuHead .nav_menu{margin:0 auto;width:1190px;font-size:14px;}
+.menuHead .nav_menu .tit_01{width:215px;height:30px;background:#008FD5;color:#FFF;vertical-align:center;padding:0 0 0 10px;line-height:30px;float:left;}
+.menu,#banner{font-family:"Simsun";}
+.line{ display:block; float:left; padding-left:5px; padding-right:5px; padding-top:5px}
+.line-01{ padding-top:14px; border-bottom:1px dotted #999;}
+.rightbanner{ float:left; width:200px}
+.rightbanner a{ display:block; float:left;}
+.rightbanner a.m1{ padding-top:2px;}
+.nav-main{ float:left}
+.nav-main a{ text-align:center; color:#3D3D3D; display:block; float:left; width:106px; text-align:center;font:15px/28px "Microsoft Yahei";}
+.nav-main a:hover{ color:#008FD5;border-bottom:2px solid #008FD5;}
+.nav-main a.select-title{color:#008FD5;border-bottom:2px solid #008FD5;}
+.c_menu .nav_a{color:#666;display:block;float:left;text-align:center;padding-left:5px;padding-right:5px;min-width:30px;padding-top:5px}
+.c_menu .nav_a:hover{color:#008FD5;text-decoration:none;}
+.c_menu .nav_c_menu{width:155px;line-height:20px;height:100%}
+.banner_ad .image{width:765px;height:350px;}
+
+.banner_ad .b_menu{width:223px;height:494px;background:#242424;border-left:1px solid #242424;border-right:1px solid #242424;border-bottom:1px solid #D9D9D9;position:relative;float:left;}
+.menu_01{width:203px;padding:13px 10px 0px 10px;}
+.menu_01.pd_10{padding-bottom:10px;}
+.menu_01.on{border-top:1px dotted #999;position:relative;margin-top:-1px;background:#F5F5F5;cursor:pointer;}
+.menu_01 .a_s{font:12px/22px "Simsun";color:#BFBDBF;display:inline-block;padding-left:5px;}
+.menu_01.on .a_s{color:#3D3D3D;}
+.menu_01 .a_s:hover{color:#008FD5;text-decoration:-moz-anchor-decoration;}
+.menu_01 .menuelogo{width:60px;height:18px;background:url("../images/menu_ico.png") left 0px no-repeat;padding-left:18px;color:#FFF;font:normal 14px/18px "Simsun";}
+.menu_01.on .menuelogo{font-weight:bold;color:#3D3D3D;}
+.menu_01 .a_01{background-position:0 -19px;}
+.menu_01 .a_02{background-position:0 -57px;}
+.menu_01 .a_03{background-position:0 -95px;}
+.menu_01 .a_03{background-position:0 -95px;}
+.menu_01 .a_04{background-position:0 -135px;}
+.menu_01 .a_05{background-position:0 -174px;}
+.menu_01 .a_06{background-position:0 -215px;}
+.menu_01 .a_07{background-position:0 -253px;}
+.menu_01.on .a_01{background-position:0 0;}
+.menu_01.on .a_02{background-position:0 -38px;}
+.menu_01.on .a_03{background-position:0 -76px;}
+.menu_01.on .a_04{background-position:0 -115px;}
+.menu_01.on .a_05{background-position:0 -154px;}
+.menu_01.on .a_06{background-position:0 -195px;}
+.menu_01.on .a_07{background-position:0 -234px;}
+.menu_01 .c_menu{width:155px;height:470px;background:#F5F5F5;border:1px solid #F5F5F5;position:absolute;left:223px;top:0px;padding:10px;font-size:12px;color:#666;z-index:3;display:none;}
+.menu_01.on .c_menu{display:block;}
+
+#bottom{ border-top:3px solid #008fd5; width:100%; overflow:hidden; margin:auto;
+margin-top:10px; background:#f5f5f5;}
+#bottommain{ width:1190px; margin:auto; overflow:hidden;}
+#bottommain dl{ width:260px; padding-right:15px; overflow:hidden; margin-top:20px;
+display:block; float:left; margin-bottom:50px;}
+#bottommain dl dd{ line-height:22px; font-size:13px; color:#ff2727}
+#bottommain dl dd a{color:#999;}
+.dl_a dt,.dl_b dt,.dl_d dt,.dl_e dt{background:url("images/headerimg.gif") no-repeat 0 0;height:34px;}
+.dl_a dt{width:120px;}
+.dl_b dt{background-position:0px -41px;width:117px;}
+.dl_c dt{width:130px;}
+.dl_d dt{background-position:0px -81px;width:118px;}
+.dl_e dt{background-position:0px -121px;width:180px;}
+.dl_a dd{margin-left:38px;}
+.dl_b dd,.dl_d dd,.dl_e dd{margin-left:40px;}
+
+.dl_a dd.first,.dl_b dd.first,.dl_c dd.first,.dl_d dd.first,.dl_e dd.first{margin-top:10px;}
+.footer_gov{width:290px;height:50px;margin:200px auto 10px;}
+.gov_txt{width:140px;float:left;padding:2px 0 0 20px;}
+.gov{background:url("../images/bottomsf_02.png") no-repeat;line-height:21px;margin:0;padding:0 0 0 25px;width:auto;}
+.gov a{color:#666;font-size:12px;font-family:"Simsun";}
+.gov a:hover{text-decoration:-moz-anchor-decoration;}
+.gov_02{color:#666;font-size:12px;padding:0;padding-left:10px;font-family:"Simsun";}
+#banner{width:100%;height:350px;background:#23B7F3;}
+.banner_ad{width:1190px;height:350px;margin:0 auto;position:relative;z-index:4}
+.ad_dot{width:80px;height:12px;position:absolute;right:220px;bottom:15px;}
+.ad_dot ul{margin:0;padding:0;}
+.ad_dot li{margin:0 0 0 4px;padding:0;float:left;
+	background:url("../images/ad_dot.png") no-repeat  -12px 0;width:12px;height:12px;display:block;cursor:pointer;}
+.ad_dot li:hover{margin:0 0 0 4px;padding:0;float:left;
+	background:url("../images/ad_dot.png") no-repeat  0 0;
+	width:12px;height:12px;display:block;cursor:pointer;}
+	.ad_dot li.on{background:url("../images/ad_dot.png") no-repeat  0 0;width:12px;height:12px;display:block;}
+
+
+.leftbanner,.lbanner_in,.lbanner_in li,.lbanner_in img{height:350px;}
+.leftbanner,.lbanner_in li,.lbanner_in li img{width:765px;}
+.leftbanner,.lbanner_in li{float:left;}
+.leftbanner{overflow:hidden;}
+.rightbanner img{width:200px;height:174px;}
+.lbanner_in{width:3825px;}
+.left-btn{float:left;}
+
+.left-btn a{display:block;width:29px;height:142px;font:bold 14px/142px "Simsun";text-align:center;background:#F0F0F0;color:#09C;}
+.left-btn.next a{border-left:1px solid #D9D9D9;}
+.left-btn a:hover{background:#E0E0E0;text-decoration:none;}
+
+#phone_ad{width:1190px;height:142px;margin:3px auto;}
+#phone_ad .nav_phone{width:960px;height:142px;float:right;}
+.nav_phoneMain{float:left;height:142px;overflow:hidden;width:900px;}
+.nav_phoneMain li{cursor:pointer;width:299px;height:140px;border:1px solid #D9D9D9;border-right:none;float:left;overflow:hidden;background-color:#fff;text-align:center;}
+.nav_phoneMain li img{width:280px;height:140px;}
+.footer_gov{width:285px;height:50px;margin:200px auto 10px;*margin:20px auto 10px;}
+.gov_txt{width:130px;float:left;padding-left:20px;}
+.gov{background:url("images/bottomsf_02.png") no-repeat;line-height:21px;margin:0;padding:0 0 0 25px;width:auto;}
+.govi a{color:#666;font-size:12px;}
+.gov a:hover{text-decoration:-moz-anchor-decoration;}
+.gov_02{color:#666;font-size:12px;padding:4px 0 0 10px;}
+
+.bottom_adv{width:100%;height:120px;background:#F7F7F7;margin:15px auto 35px;}
+.bottom_adv .neir{width:910px;height:120px;margin:0 auto;}
+.neir img{width:910px;}
+
+
+
+
+
+
+
+

@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+html{height:100%;}
+body{ height:100%}
+	*{ padding:0; margin:0; list-style:none;}
+	.swiper-container {
+        width: 100%;
+        height: 90%;
+        margin: 0px auto;
+		padding-top:100px;
+		font-weight:bold;
+		color:black; font-size:20px; text-align:center;
+    }
+	
+	.swiper-wrapper div{line-height:10px;}
+	#nav{ width:100%;  height:100px;position:fixed; top:0; z-index:100; opacity:1; line-height:100px;border-radius:10px; background: url(images/bj5.jpg); color:#fff}
+	#nav ul{width:100%; margin:0 auto; position:absolute;top:10px; left:600px; top:25px; }
+	#nav ul li{width:100px;height:50px; border:#666 solid 0px; float:left; text-align:center; line-height:50px; z-index:1000;}
+	
+	#nav ul li.block{ background:#09C; position:absolute;left:0;top:0; z-index:-1;
+	border-radius:10px;}	
+	#logo{ width:130px; height:80px;margin-left:120px; border-radius:20px; overflow:hidden;}
+	#logo a img{width:130px; height:80px;}
+#skill{width:100%; height:100%;margin:0 auto; background-size:100%; position:relative; background: url(images/upload/pic_4.jpg); background-size:100%;}
+#skill h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
+#skill p{ margin:0; pading:0; line-height:20px; color:black; padding-bottom:60px;}
+	
+#buju {width:1000px; height:316px;margin:10px auto; position:relative;}
+#buju li {width:120px; height:120px; background:#CCC; border:1px solid black; float:left; margin:20px; font-size:30px; text-align:center; line-height:120px;}
+
+#fadein{ width:700px; height:180px;position:absolute; bottom:60px; left:50%;
+margin-left:-350px;}	
+#fadein ol li{position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; background:url(exp_list_bg1.jpg); background-size:100%;}
+#fadein ol li p{margin:0; padding:0; line-height:1.5em; text-align:left; margin-left:20px;}
+
+.app{height:100%; background-size:100%; margin:0 auto;background: url(images/423921.jpg); background-size:100%;}
+.app h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
+.app p{ margin:0; pading:0; line-height:20px; color:black; padding-bottom:10px;}
+
+.application{ width:1000px; height:430px;margin:0 auto;}
+#application{ position:relative;width:1000px; margin:10px auto; }
+#application li{float:left;width:160px; height:160px; margin:30px;box-shadow: 6px 6px 3px #888;border-radius: 6px;}
+#application li img{border-radius:8px;}
+.foot_info_main{ height:108px;}
+
+.resume{height:260px; background-size:100%; margin:0 auto; background:;}
+.resume h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
+.resume_name{width:500px;margin-left:260px; margin-top:40px;}
+.resume_name p{ font-size:24px; line-height:26px; text-align:left;}
+.icon_blog div{ width:50px; height:40px; background:url(icon/blog.png) no-repeat; background-size:100%; position:absolute; z-index:10; background-position:0px -10px;}
+.icon_weibo div{ width:50px; height:40px; background:url(icon/weibo.png) no-repeat; background-size:100%; background-position:0 -7px;}
+.icon_github div{ width:50px; height:40px; background:url(icon/github.png) no-repeat; background-size:100%; background-position:0 -7px;}
+.icon_blog { z-index:10; background:#0CF}
+.icon_github{ background:#3CC}
+.icon_weibo{ background:#39F}
+.icon_blog a{ position:absolute; top:16px; font-size:14px; margin-right:3px;}
+.icon_weibo a{position:absolute; top:16px;font-size:14px; margin-right:13px;}
+.icon_github a{position:absolute;top:16px;font-size:14px; right:5px;}
+
+
+<!-->我的作品<-->
+#works{width:100%;}
+#works h3{font-size:40px; margin:0; padding:0; line-height:40px; padding:20px 0;}
+
+#works .works_sta{width:200px; height:350px; float:left;position:relative; background:#99F; margin:60px 0 0 80px;}
+#works .works_sta h2{ width:200px; height:50px;background:#999; border-radius:10px 10px 0 0; text-align: center;
+line-height:50px; position:absolute; top:-10px;}
+.works_menu ul{ overflow:hidden;position:absolute; top:40px; width:100%;}
+.works_menu ul li a{width:100%; line-height:40px; text-align:left; height:40px; border-bottom:3px solid #ccc; display:block; color:black;}
+.works_menu ul li a:hover{border-bottom:3px solid #fff; color:red;} 
+.works_menu ul li a.click{ border-bottom:none;color:blue;}
+
+#works .works_act{ width:900px; height:360px; background:#ccc; float:left; margin:50px 0 0 40px;overflow:hiden;}
+#works .works_act h4{line-height:60px; text-align:center; font-size:30px;}
+.works_act ul{ margin-left:20px; width: 800px;}
+.works_act ul li a{ display:block; float:left; width:120px; padding-top:100px; line-height:20px; text-align:center; margin:0 20px 20px 0; background:pink;}
+
+.works_act ul li a.l0{background:url(imagejs/chrome.png) no-repeat; background-size:100%;}
+.works_act ul li a.l1{background:url(imagejs/clock.png) no-repeat; background-size:100%;}
+.works_act ul li a.l2{background:url(imagejs/ball.png) no-repeat; background-size:100%;}
+.works_act ul li a.l3{background:url(imagejs/fanye.png) no-repeat; background-size:100%;}
+.works_act ul li a.l4{background:url(imagejs/wufeng.png) no-repeat; background-size:100%;}
+.works_act ul li a.l5{background:url(imagejs/bom.png) no-repeat; background-size:100%;}
+.works_act ul li a.l6{background:url(imagejs/xuanzhuan.png) no-repeat; background-size:100%;}
+.works_act ul li a.l7{background:url(imagejs/danru.png) no-repeat; background-size:100%;}
+.works_act ul li a.l8{background:url(imagejs/qin.png) no-repeat; background-size:100%;}
+.works_act ul li a.l9{background:url(imagejs/yuanhuan.png) no-repeat; background-size:100%;}
+.works_act ul li a{ text-align:center; color:#000; font-size:20px; line-height:24px}
+
